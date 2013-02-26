@@ -172,8 +172,8 @@ function makeSrcFile(path, srcDir, name) {
 
 /** Build output for displaying function parameters. */
 function makeSignature(params) {
-	if (!params) return "()";
-	var signature = "("
+	if (!params) return "&thinsp;(&thinsp;)";
+	var signature = "&thinsp;(&thinsp;"
 	+
 	params.filter(
 		function($) {
@@ -181,11 +181,11 @@ function makeSignature(params) {
 		}
 	).map(
 		function($) {
-			return $.name;
+			return "<var>" + $.name + "</var>";
 		}
 	).join(", ")
 	+
-	")";
+	"&thinsp;)";
 	return signature;
 }
 

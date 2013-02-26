@@ -1,2077 +1,545 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="generator" content="JsDoc Toolkit" />
+<!DOCTYPE html><meta charset=utf-8>
+
+<title>SocialGraph Reference - _global_</title>
+<style>body{background:#272822;color:#fff;font-family:'Helvetica Neue',Helvetica,Verdana,Arial}
+a,b{color:rgb(102,217,239);text-decoration:none}
+hr{border:none;border-top:1px solid #7F8FB1;height:1px}
+pre{display:block;padding:8px;border:1px dashed #ccc}
+section{display:block;margin:0 auto;max-width:600px}
+ul{font-size:smaller}
+tt,tt a{font-family:"Courier New",Courier,monospace;color:rgb(249,38,114)}
+var{color:rgb(253,151,32)}
+p{color:rgb(117,113,74);padding: 0 0 0 25px}</style>
+
+<section>
+<h1><a href=../..>SocialGraph</a> / <a href=..>Documentation</a> /  Built-In Namespace _global_</h1>
+<p class="description">
+
+
+
+				
+
+</p>
 		
-		<title>JsDoc Reference - _global_</title>
 
-		<style type="text/css">
-			/* default.css */
-body
-{
-	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
-	width: 800px;
-}
 
-.header
-{
-	clear: both;
-	background-color: #ccc;
-	padding: 8px;
-}
 
-h1
-{
-	font-size: 150%;
-	font-weight: bold;
-	padding: 0;
-	margin: 1em 0 0 .3em;
-}
+<h3>Properties</h3><ul>
+<li><a href="../symbols/_global_.html#ajax">ajax</a><p>The ressource to perform asynchronous requests (AJAX)</p></li><li><a href="../symbols/_global_.html#context">context</a><p>Context linked to the drawable canvas element.</p></li><li><a href="../symbols/_global_.html#githubProjectUrl">githubProjectUrl</a></li><li><a href="../symbols/_global_.html#graph">graph</a><p>Graph data.</p></li><li><a href="../symbols/_global_.html#graphKey">graphKey</a><p>The graph cipher key (must be kept from the server and from strangers).</p></li><li><a href="../symbols/_global_.html#integer">integer</a></li><li><a href="../symbols/_global_.html#linksTarget">linksTarget</a></li><li><a href="../symbols/_global_.html#minimalMass">minimalMass</a><p>Lower boundary for objects mass</p></li><li><a href="../symbols/_global_.html#objectsDensity">objectsDensity</a><p>Ratio between the radius of an object and its mass</p></li><li><a href="../symbols/_global_.html#objectsMargin">objectsMargin</a><p>Minimal space between two objects (in pixels)</p></li><li><a href="../symbols/_global_.html#predefinedColors">predefinedColors</a><p>Little dictionnary of predefined colors in "Red,Green,Blue" format</p></li><li><a href="../symbols/_global_.html#predefinedLicenses">predefinedLicenses</a><p>Licences list</p></li><li><a href="../symbols/_global_.html#selectedVertices">selectedVertices</a><p>List of currently selected vertices.</p></li><li><a href="../symbols/_global_.html#SocialGraphUrl">SocialGraphUrl</a></li><li><a href="../symbols/_global_.html#timeStep">timeStep</a><p>Time step of the animation (in milliseconds).</p></li><li><a href="../symbols/_global_.html#vertexTypes">vertexTypes</a></li></ul>
+				
 
-hr
-{
-	border: none 0;
-	border-top: 1px solid #7F8FB1;
-	height: 1px;
-}
+			
 
-pre.code
-{
-	display: block;
-	padding: 8px;
-	border: 1px dashed #ccc;
-}
 
-#index
-{
-	margin-top: 24px;
-	float: left;
-	width: 160px;
-	position: absolute;
-	left: 8px;
-	background-color: #F3F3F3;
-	padding: 8px;
-}
 
-#content
-{
-	margin-left: 190px;
-	width: 600px;
-}
 
-.classList
-{
-	list-style-type: none;
-	padding: 0;
-	margin: 0 0 0 8px;
-	font-family: arial, sans-serif;
-	font-size: 1em;
-	overflow: auto;
-}
+<h3>Methods</h3>
+<ul>
+<li><a href="../symbols/_global_.html#addNewVertex">addNewVertex</a>&thinsp;(&thinsp;&thinsp;)
+<p>Creates a new vertex and opens the Edit panel</p></li>
 
-.classList li
-{
-	padding: 0;
-	margin: 0 0 8px 0;
-}
+<li><a href="../symbols/_global_.html#animate">animate</a>&thinsp;(&thinsp;&thinsp;)
+<p>Animates the graph</p></li>
 
-.summaryTable { width: 100%; }
+<li><a href="../symbols/_global_.html#closePanel">closePanel</a>&thinsp;(&thinsp;&thinsp;)
+<p>Closes the opened panel</p></li>
 
-h1.classTitle
-{
-	font-size:170%;
-	line-height:130%;
-}
+<li><a href="../symbols/_global_.html#coords">coords</a>&thinsp;(&thinsp;<var>x</var>, <var>y</var>&thinsp;)
+</li>
 
-h2 { font-size: 110%; }
-caption, div.sectionTitle
-{
-	background-color: #7F8FB1;
-	color: #fff;
-	font-size:130%;
-	text-align: left;
-	padding: 2px 6px 2px 6px;
-	border: 1px #7F8FB1 solid;
-}
+<li><a href="../symbols/_global_.html#create">create</a>&thinsp;(&thinsp;<var>tagName</var>&thinsp;)
+<p>Create a DOM Element and append it to the DOM body</p></li>
 
-div.sectionTitle { margin-bottom: 8px; }
-.summaryTable thead { display: none; }
+<li><a href="../symbols/_global_.html#displayError">displayError</a>&thinsp;(&thinsp;<var>message</var>&thinsp;)
+<p>Displays an error message in the panel</p></li>
 
-.summaryTable td
-{
-	vertical-align: top;
-	padding: 4px;
-	border-bottom: 1px #7F8FB1 solid;
-	border-right: 1px #7F8FB1 solid;
-}
+<li><a href="../symbols/_global_.html#download">download</a>&thinsp;(&thinsp;&thinsp;)
+<p>Starts graph/contact list download</p></li>
 
-/*col#summaryAttributes {}*/
-.summaryTable td.attributes
-{
-	border-left: 1px #7F8FB1 solid;
-	width: 140px;
-	text-align: right;
-}
+<li><a href="../symbols/_global_.html#editMetaData">editMetaData</a>&thinsp;(&thinsp;&thinsp;)
+<p>Edit meta data of the graph</p></li>
 
-td.attributes, .fixedFont
-{
-	line-height: 15px;
-	color: #002EBE;
-	font-family: "Courier New",Courier,monospace;
-	font-size: 13px;
-}
+<li><a href="../symbols/_global_.html#editPanel">editPanel</a>&thinsp;(&thinsp;&thinsp;)
+<p>Opens the Edit panel for the lastest selected vertex</p></li>
 
-.summaryTable td.nameDescription
-{
-	text-align: left;
-	font-size: 13px;
-	line-height: 15px;
-}
+<li><a href="../symbols/_global_.html#editVertex">editVertex</a>&thinsp;(&thinsp;&thinsp;)
+<p>Update the vertex properties
+TODO: clean user inputs.</p></li>
 
-.summaryTable td.nameDescription, .description
-{
-	line-height: 15px;
-	padding: 4px;
-	padding-left: 4px;
-}
+<li><a href="../symbols/_global_.html#getClosestTo">getClosestTo</a>&thinsp;(&thinsp;<var>c</var>&thinsp;)
+<p>Search the graph for the closest vertex from the coords "c"</p></li>
 
-.summaryTable { margin-bottom: 8px; }
+<li><a href="../symbols/_global_.html#getDataFromUrl">getDataFromUrl</a>&thinsp;(&thinsp;<var>url</var>, <var>callback</var>&thinsp;)
+</li>
 
-ul.inheritsList
-{
-	list-style: square;
-	margin-left: 20px;
-	padding-left: 0;
-}
+<li><a href="../symbols/_global_.html#getId">getId</a>&thinsp;(&thinsp;<var>id</var>&thinsp;)
+<p>Alias of document.getElementById()</p></li>
 
-.detailList {
-	margin-left: 20px; 
-	line-height: 15px;
-}
-.detailList dt { margin-left: 20px; }
+<li><a href="../symbols/_global_.html#getVertexByCoords">getVertexByCoords</a>&thinsp;(&thinsp;<var>c</var>&thinsp;)
+</li>
 
-.detailList .heading
-{
-	font-weight: bold;
-	padding-bottom: 6px;
-	margin-left: 0;
-}
+<li><a href="../symbols/_global_.html#getVertexByTitle">getVertexByTitle</a>&thinsp;(&thinsp;<var>title</var>&thinsp;)
+<p>Search the graph for a vertex called "title" and return its index</p></li>
 
-.light, td.attributes, .light a:link, .light a:visited
-{
-	color: #777;
-	font-style: italic;
-}
+<li><a href="../symbols/_global_.html#helpPanel">helpPanel</a>&thinsp;(&thinsp;&thinsp;)
+<p>Shows Help panel</p></li>
 
-.fineprint
-{
-	text-align: right;
-	font-size: 10px;
-}
-		</style>
-	</head>
+<li><a href="../symbols/_global_.html#importFromUrl">importFromUrl</a>&thinsp;(&thinsp;<var>url</var>&thinsp;)
+</li>
 
-	<body>
-<!-- ============================== header ================================= -->	
-		<!-- begin static/header.html -->
-		<div id="header">
-</div>
-		<!-- end static/header.html -->
+<li><a href="../symbols/_global_.html#importPanel">importPanel</a>&thinsp;(&thinsp;&thinsp;)
+<p>Opens the Import panel</p></li>
 
-<!-- ============================== classes index ============================ -->
-		<div id="index">
-			<!-- begin publish.classesIndex -->
-			<div align="center"><a href="../index.html">Class Index</a>
-| <a href="../files.html">File Index</a></div>
+<li><a href="../symbols/_global_.html#licenseLink">licenseLink</a>&thinsp;(&thinsp;<var>licenseId</var>&thinsp;)
+</li>
+
+<li><a href="../symbols/_global_.html#savePanel">savePanel</a>&thinsp;(&thinsp;&thinsp;)
+<p>Opens the Import panel</p></li>
+
+<li><a href="../symbols/_global_.html#selectVertex">selectVertex</a>&thinsp;(&thinsp;&thinsp;)
+<p>User Interface click event</p></li>
+
+<li><a href="../symbols/_global_.html#setCanvasSize">setCanvasSize</a>&thinsp;(&thinsp;&thinsp;)
+<p>Adjust the canvas size to the window</p></li>
+
+<li><a href="../symbols/_global_.html#sharePanel">sharePanel</a>&thinsp;(&thinsp;&thinsp;)
+<p>Shows Share panel</p></li>
+
+<li><a href="../symbols/_global_.html#showMenu">showMenu</a>&thinsp;(&thinsp;&thinsp;)
+<p>Shows the User Interface (UI) menu</p></li>
+
+<li><a href="../symbols/_global_.html#showPanel">showPanel</a>&thinsp;(&thinsp;<var>title</var>, <var>content</var>&thinsp;)
+<p>Shows a panel</p></li>
+
+<li><a href="../symbols/_global_.html#trackMouse">trackMouse</a>&thinsp;(&thinsp;<var>e</var>&thinsp;)
+<p>Tracks the mouse movements</p></li>
+
+<li><a href="../symbols/_global_.html#vertex">vertex</a>&thinsp;(&thinsp;<var>props</var>&thinsp;)
+</li>
+</ul>	
+	
+
+
+
+	
+
+
+<h3>Field Detail</h3><b id="ajax">ajax</b>
+<p>The ressource to perform asynchronous requests (AJAX)<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
+<hr /><b id="context">context</b>
+<p>Context linked to the drawable canvas element.<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
+<hr /><b id="githubProjectUrl">githubProjectUrl</b>
+<p><br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
+<hr /><b id="graph">graph</b>
+<p>Graph data.<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
+<hr /><b id="graphKey">graphKey</b>
+<p>The graph cipher key (must be kept from the server and from strangers).<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
+<hr /><b id="integer">integer</b>
+<p><br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
+<hr /><b id="linksTarget">linksTarget</b>
+<p><br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
+<hr /><b id="minimalMass">minimalMass</b>
+<p>Lower boundary for objects mass<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
+<hr /><b id="objectsDensity">objectsDensity</b>
+<p>Ratio between the radius of an object and its mass<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
+<hr /><b id="objectsMargin">objectsMargin</b>
+<p>Minimal space between two objects (in pixels)<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
+<hr /><b id="predefinedColors">predefinedColors</b>
+<p>Little dictionnary of predefined colors in "Red,Green,Blue" format<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
+<hr /><b id="predefinedLicenses">predefinedLicenses</b>
+<p>Licences list<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
+<hr /><b id="selectedVertices">selectedVertices</b>
+<p>List of currently selected vertices.<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
+<hr /><b id="SocialGraphUrl">SocialGraphUrl</b>
+<p><br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
+<hr /><b id="timeStep">timeStep</b>
+<p>Time step of the animation (in milliseconds).<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
+<hr /><b id="vertexTypes">vertexTypes</b>
+<p><br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
+	
+
+<h3>Method Detail</h3>
+
+<b name="addNewVertex">
+
+
+addNewVertex</b>&thinsp;(&thinsp;&thinsp;)
+<p>Creates a new vertex and opens the Edit panel
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
 <hr />
-<h2>Classes</h2>
-<ul class="classList">
-	
-	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
-	
-	<li><a href="../symbols/Coords.html">Coords</a></li>
-	
-	<li><a href="../symbols/Vertex.html">Vertex</a></li>
-	
-</ul>
+<b name="animate">
+
+
+animate</b>&thinsp;(&thinsp;&thinsp;)
+<p>Animates the graph
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
 <hr />
-			<!-- end publish.classesIndex -->
-		</div>
-		
-		<div id="content">
-<!-- ============================== class title ============================ -->
-			<h1 class="classTitle">
-				
-				Built-In Namespace _global_
-			</h1>
+<b name="closePanel">
 
-<!-- ============================== class summary ========================== -->			
-			<p class="description">
-				
-				
-			
-				
-				
-				
-			</p>
 
-<!-- ============================== constructor summary ==================== -->			
-			
+closePanel</b>&thinsp;(&thinsp;&thinsp;)
+<p>Closes the opened panel
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
 
-<!-- ============================== properties summary ===================== -->
-			
-				
-				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class _global_.">
-					<caption>Field Summary</caption>
-					<thead>
-						<tr>
-							<th scope="col">Field Attributes</th>
-							<th scope="col">Field Name and Description</th>
-						</tr>
-					</thead>
-					<tbody>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#ajax">ajax</a></b>
-								</div>
-								<div class="description">The ressource to perform asynchronous requests (AJAX)</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#context">context</a></b>
-								</div>
-								<div class="description">Context linked to the drawable canvas element.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#githubProjectUrl">githubProjectUrl</a></b>
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#graph">graph</a></b>
-								</div>
-								<div class="description">Graph data.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#graphKey">graphKey</a></b>
-								</div>
-								<div class="description">The graph cipher key (must be kept from the server and from strangers).</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#integer">integer</a></b>
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#linksTarget">linksTarget</a></b>
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#minimalMass">minimalMass</a></b>
-								</div>
-								<div class="description">Lower boundary for objects mass</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#objectsDensity">objectsDensity</a></b>
-								</div>
-								<div class="description">Ratio between the radius of an object and its mass</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#objectsMargin">objectsMargin</a></b>
-								</div>
-								<div class="description">Minimal space between two objects (in pixels)</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#predefinedColors">predefinedColors</a></b>
-								</div>
-								<div class="description">Little dictionnary of predefined colors in "Red,Green,Blue" format</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#predefinedLicenses">predefinedLicenses</a></b>
-								</div>
-								<div class="description">Licences list</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#selectedVertices">selectedVertices</a></b>
-								</div>
-								<div class="description">List of currently selected vertices.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#SocialGraphUrl">SocialGraphUrl</a></b>
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#timeStep">timeStep</a></b>
-								</div>
-								<div class="description">Time step of the animation (in milliseconds).</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/_global_.html#vertexTypes">vertexTypes</a></b>
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-					</tbody>
-				</table>
-				
-				
-				
-			
+</p>
 
-<!-- ============================== methods summary ======================== -->
-			
-				
-				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class _global_.">
-					<caption>Method Summary</caption>
-					<thead>
-						<tr>
-							<th scope="col">Method Attributes</th>
-							<th scope="col">Method Name and Description</th>
-						</tr>
-					</thead>
-					<tbody>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#addNewVertex">addNewVertex</a></b>()
-								</div>
-								<div class="description">Creates a new vertex and opens the Edit panel</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#animate">animate</a></b>()
-								</div>
-								<div class="description">Animates the graph</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#closePanel">closePanel</a></b>()
-								</div>
-								<div class="description">Closes the opened panel</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#coords">coords</a></b>(x, y)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#create">create</a></b>(tagName)
-								</div>
-								<div class="description">Create a DOM Element and append it to the DOM body</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#displayError">displayError</a></b>(message)
-								</div>
-								<div class="description">Displays an error message in the panel</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#download">download</a></b>()
-								</div>
-								<div class="description">Starts graph/contact list download</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#editMetaData">editMetaData</a></b>()
-								</div>
-								<div class="description">Edit meta data of the graph</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#editPanel">editPanel</a></b>()
-								</div>
-								<div class="description">Opens the Edit panel for the lastest selected vertex</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#editVertex">editVertex</a></b>()
-								</div>
-								<div class="description">Update the vertex properties
-TODO: clean user inputs.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#getClosestTo">getClosestTo</a></b>(c)
-								</div>
-								<div class="description">Search the graph for the closest vertex from the coords "c"</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#getDataFromUrl">getDataFromUrl</a></b>(url, callback)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#getId">getId</a></b>(id)
-								</div>
-								<div class="description">Alias of document.getElementById()</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#getVertexByCoords">getVertexByCoords</a></b>(c)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#getVertexByTitle">getVertexByTitle</a></b>(title)
-								</div>
-								<div class="description">Search the graph for a vertex called "title" and return its index</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#helpPanel">helpPanel</a></b>()
-								</div>
-								<div class="description">Shows Help panel</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#importFromUrl">importFromUrl</a></b>(url)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#importPanel">importPanel</a></b>()
-								</div>
-								<div class="description">Opens the Import panel</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#licenseLink">licenseLink</a></b>(licenseId)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#savePanel">savePanel</a></b>()
-								</div>
-								<div class="description">Opens the Import panel</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#selectVertex">selectVertex</a></b>()
-								</div>
-								<div class="description">User Interface click event</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#setCanvasSize">setCanvasSize</a></b>()
-								</div>
-								<div class="description">Adjust the canvas size to the window</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#sharePanel">sharePanel</a></b>()
-								</div>
-								<div class="description">Shows Share panel</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#showMenu">showMenu</a></b>()
-								</div>
-								<div class="description">Shows the User Interface (UI) menu</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#showPanel">showPanel</a></b>(title, content)
-								</div>
-								<div class="description">Shows a panel</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#trackMouse">trackMouse</a></b>(e)
-								</div>
-								<div class="description">Tracks the mouse movements</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#vertex">vertex</a></b>(props)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-					</tbody>
-				</table>
-				
-				
-				
-			
-<!-- ============================== events summary ======================== -->
-			
+<hr />
+<b name="coords">
 
-<!-- ============================== constructor details ==================== -->		
-			
+<tt>{<a href="../symbols/Coords.html">Coords</a>}</tt>
+coords</b>&thinsp;(&thinsp;<var>x</var>, <var>y</var>&thinsp;)
+<p>
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
 
-<!-- ============================== field details ========================== -->		
-			
-				<div class="sectionTitle">
-					Field Detail
-				</div>
-				
-					<a name="ajax"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>ajax</b>
-					
-					</div>
-					<div class="description">
-						The ressource to perform asynchronous requests (AJAX)
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
+</p>
 
-						
-						
-						
-						
 
-					<hr />
-				
-					<a name="context"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>context</b>
-					
-					</div>
-					<div class="description">
-						Context linked to the drawable canvas element.
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
+Parameters:<ul><li><tt>{number}</tt> <var>x</var> 
+Horizontal component.</li><li><tt>{number}</tt> <var>y</var> 
+Vertical component.</li></ul>Returns:<ul><li><tt>{<a href="../symbols/Coords.html">Coords</a>}</tt> Vector coordinates.</li></ul><hr />
+<b name="create">
 
-						
-						
-						
-						
+<tt>{Node}</tt>
+create</b>&thinsp;(&thinsp;<var>tagName</var>&thinsp;)
+<p>Create a DOM Element and append it to the DOM body
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
 
-					<hr />
-				
-					<a name="githubProjectUrl"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>githubProjectUrl</b>
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
+</p>
 
-						
-						
-						
-						
 
-					<hr />
-				
-					<a name="graph"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>graph</b>
-					
-					</div>
-					<div class="description">
-						Graph data.
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
+Parameters:<ul><li><tt>{string}</tt> <var>tagName</var> 
+The < tag name > .</li></ul>Returns:<ul><li><tt>{Node}</tt> The DOM Node.</li></ul><hr />
+<b name="displayError">
 
-						
-						
-						
-						
 
-					<hr />
-				
-					<a name="graphKey"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>graphKey</b>
-					
-					</div>
-					<div class="description">
-						The graph cipher key (must be kept from the server and from strangers).
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
+displayError</b>&thinsp;(&thinsp;<var>message</var>&thinsp;)
+<p>Displays an error message in the panel
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
 
-						
-						
-						
-						
+</p>
 
-					<hr />
-				
-					<a name="integer"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>integer</b>
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
 
-						
-						
-						
-						
+Parameters:<ul><li><tt>{string}</tt> <var>message</var> 
+Error message.</li></ul><hr />
+<b name="download">
 
-					<hr />
-				
-					<a name="linksTarget"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>linksTarget</b>
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
 
-						
-						
-						
-						
+download</b>&thinsp;(&thinsp;&thinsp;)
+<p>Starts graph/contact list download
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
 
-					<hr />
-				
-					<a name="minimalMass"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>minimalMass</b>
-					
-					</div>
-					<div class="description">
-						Lower boundary for objects mass
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
+</p>
 
-						
-						
-						
-						
+<hr />
+<b name="editMetaData">
 
-					<hr />
-				
-					<a name="objectsDensity"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>objectsDensity</b>
-					
-					</div>
-					<div class="description">
-						Ratio between the radius of an object and its mass
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
 
-						
-						
-						
-						
+editMetaData</b>&thinsp;(&thinsp;&thinsp;)
+<p>Edit meta data of the graph
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
 
-					<hr />
-				
-					<a name="objectsMargin"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>objectsMargin</b>
-					
-					</div>
-					<div class="description">
-						Minimal space between two objects (in pixels)
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
+</p>
 
-						
-						
-						
-						
+<hr />
+<b name="editPanel">
 
-					<hr />
-				
-					<a name="predefinedColors"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>predefinedColors</b>
-					
-					</div>
-					<div class="description">
-						Little dictionnary of predefined colors in "Red,Green,Blue" format
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
 
-						
-						
-						
-						
+editPanel</b>&thinsp;(&thinsp;&thinsp;)
+<p>Opens the Edit panel for the lastest selected vertex
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
 
-					<hr />
-				
-					<a name="predefinedLicenses"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>predefinedLicenses</b>
-					
-					</div>
-					<div class="description">
-						Licences list
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
+</p>
 
-						
-						
-						
-						
+<hr />
+<b name="editVertex">
 
-					<hr />
-				
-					<a name="selectedVertices"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>selectedVertices</b>
-					
-					</div>
-					<div class="description">
-						List of currently selected vertices.
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
 
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="SocialGraphUrl"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>SocialGraphUrl</b>
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="timeStep"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>timeStep</b>
-					
-					</div>
-					<div class="description">
-						Time step of the animation (in milliseconds).
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="vertexTypes"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>vertexTypes</b>
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-
-						
-						
-						
-						
-
-					
-				
-			
-
-<!-- ============================== method details ========================= -->		
-			
-				<div class="sectionTitle">
-					Method Detail
-				</div>
-				
-					<a name="addNewVertex"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>addNewVertex</b>()
-					
-					</div>
-					<div class="description">
-						Creates a new vertex and opens the Edit panel
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="animate"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>animate</b>()
-					
-					</div>
-					<div class="description">
-						Animates the graph
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="closePanel"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>closePanel</b>()
-					
-					</div>
-					<div class="description">
-						Closes the opened panel
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="coords"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{<a href="../symbols/Coords.html">Coords</a>}</span>
-					<b>coords</b>(x, y)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{number}</span> <b>x</b>
-									
-								</dt>
-								<dd>Horizontal component.</dd>
-							
-								<dt>
-									<span class="light fixedFont">{number}</span> <b>y</b>
-									
-								</dt>
-								<dd>Vertical component.</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{<a href="../symbols/Coords.html">Coords</a>}</span> Vector coordinates.</dd>
-							
-							</dl>
-						
-						
-						
-
-					<hr />
-				
-					<a name="create"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{Node}</span>
-					<b>create</b>(tagName)
-					
-					</div>
-					<div class="description">
-						Create a DOM Element and append it to the DOM body
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{string}</span> <b>tagName</b>
-									
-								</dt>
-								<dd>The < tag name > .</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{Node}</span> The DOM Node.</dd>
-							
-							</dl>
-						
-						
-						
-
-					<hr />
-				
-					<a name="displayError"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>displayError</b>(message)
-					
-					</div>
-					<div class="description">
-						Displays an error message in the panel
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{string}</span> <b>message</b>
-									
-								</dt>
-								<dd>Error message.</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="download"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>download</b>()
-					
-					</div>
-					<div class="description">
-						Starts graph/contact list download
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="editMetaData"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>editMetaData</b>()
-					
-					</div>
-					<div class="description">
-						Edit meta data of the graph
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="editPanel"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>editPanel</b>()
-					
-					</div>
-					<div class="description">
-						Opens the Edit panel for the lastest selected vertex
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="editVertex"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>editVertex</b>()
-					
-					</div>
-					<div class="description">
-						Update the vertex properties
+editVertex</b>&thinsp;(&thinsp;&thinsp;)
+<p>Update the vertex properties
 TODO: clean user inputs.
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
 
-					<hr />
-				
-					<a name="getClosestTo"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{<a href="../symbols/_global_.html#integer">integer</a>}</span>
-					<b>getClosestTo</b>(c)
-					
-					</div>
-					<div class="description">
-						Search the graph for the closest vertex from the coords "c"
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{<a href="../symbols/Coords.html">Coords</a>}</span> <b>c</b>
-									
-								</dt>
-								<dd>The origin vector.</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{<a href="../symbols/_global_.html#integer">integer</a>}</span> The closest vertex index in the graph array.</dd>
-							
-							</dl>
-						
-						
-						
+</p>
 
-					<hr />
-				
-					<a name="getDataFromUrl"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>getDataFromUrl</b>(url, callback)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{string}</span> <b>url</b>
-									
-								</dt>
-								<dd>The ressource URL.</dd>
-							
-								<dt>
-									<span class="light fixedFont">{function(string)}</span> <b>callback</b>
-									
-								</dt>
-								<dd>The function called with data as argument.</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
+<hr />
+<b name="getClosestTo">
 
-					<hr />
-				
-					<a name="getId"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{Node}</span>
-					<b>getId</b>(id)
-					
-					</div>
-					<div class="description">
-						Alias of document.getElementById()
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{string}</span> <b>id</b>
-									
-								</dt>
-								<dd>DOM Node identifier.</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{Node}</span> DOM Node.</dd>
-							
-							</dl>
-						
-						
-						
+<tt>{<a href="../symbols/_global_.html#integer">integer</a>}</tt>
+getClosestTo</b>&thinsp;(&thinsp;<var>c</var>&thinsp;)
+<p>Search the graph for the closest vertex from the coords "c"
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
 
-					<hr />
-				
-					<a name="getVertexByCoords"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{<a href="../symbols/_global_.html#integer">integer</a>}</span>
-					<b>getVertexByCoords</b>(c)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{<a href="../symbols/Coords.html">Coords</a>}</span> <b>c</b>
-									
-								</dt>
-								<dd>The coords searched.</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{<a href="../symbols/_global_.html#integer">integer</a>}</span> The vertex index, if any, located here.</dd>
-							
-							</dl>
-						
-						
-						
+</p>
 
-					<hr />
-				
-					<a name="getVertexByTitle"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{<a href="../symbols/_global_.html#integer">integer</a>}</span>
-					<b>getVertexByTitle</b>(title)
-					
-					</div>
-					<div class="description">
-						Search the graph for a vertex called "title" and return its index
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{string}</span> <b>title</b>
-									
-								</dt>
-								<dd>The vertex title.</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{<a href="../symbols/_global_.html#integer">integer</a>}</span> the index of the found node in the graph array.</dd>
-							
-							</dl>
-						
-						
-						
 
-					<hr />
-				
-					<a name="helpPanel"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>helpPanel</b>()
-					
-					</div>
-					<div class="description">
-						Shows Help panel
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
+Parameters:<ul><li><tt>{<a href="../symbols/Coords.html">Coords</a>}</tt> <var>c</var> 
+The origin vector.</li></ul>Returns:<ul><li><tt>{<a href="../symbols/_global_.html#integer">integer</a>}</tt> The closest vertex index in the graph array.</li></ul><hr />
+<b name="getDataFromUrl">
 
-					<hr />
-				
-					<a name="importFromUrl"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>importFromUrl</b>(url)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{string}</span> <b>url</b>
-									
-								</dt>
-								<dd>The url containing JSON data.</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
 
-					<hr />
-				
-					<a name="importPanel"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>importPanel</b>()
-					
-					</div>
-					<div class="description">
-						Opens the Import panel
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
+getDataFromUrl</b>&thinsp;(&thinsp;<var>url</var>, <var>callback</var>&thinsp;)
+<p>
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
 
-					<hr />
-				
-					<a name="licenseLink"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{string}</span>
-					<b>licenseLink</b>(licenseId)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{string}</span> <b>licenseId</b>
-									
-								</dt>
-								<dd>The license identifier.</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{string}</span> The license link.</dd>
-							
-							</dl>
-						
-						
-						
+</p>
 
-					<hr />
-				
-					<a name="savePanel"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>savePanel</b>()
-					
-					</div>
-					<div class="description">
-						Opens the Import panel
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
 
-					<hr />
-				
-					<a name="selectVertex"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>selectVertex</b>()
-					
-					</div>
-					<div class="description">
-						User Interface click event
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
+Parameters:<ul><li><tt>{string}</tt> <var>url</var> 
+The ressource URL.</li><li><tt>{function(string)}</tt> <var>callback</var> 
+The function called with data as argument.</li></ul><hr />
+<b name="getId">
 
-					<hr />
-				
-					<a name="setCanvasSize"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>setCanvasSize</b>()
-					
-					</div>
-					<div class="description">
-						Adjust the canvas size to the window
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
+<tt>{Node}</tt>
+getId</b>&thinsp;(&thinsp;<var>id</var>&thinsp;)
+<p>Alias of document.getElementById()
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
 
-					<hr />
-				
-					<a name="sharePanel"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>sharePanel</b>()
-					
-					</div>
-					<div class="description">
-						Shows Share panel
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
+</p>
 
-					<hr />
-				
-					<a name="showMenu"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>showMenu</b>()
-					
-					</div>
-					<div class="description">
-						Shows the User Interface (UI) menu
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
 
-					<hr />
-				
-					<a name="showPanel"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>showPanel</b>(title, content)
-					
-					</div>
-					<div class="description">
-						Shows a panel
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{string}</span> <b>title</b>
-									
-								</dt>
-								<dd>The panel name.</dd>
-							
-								<dt>
-									<span class="light fixedFont">{string}</span> <b>content</b>
-									
-								</dt>
-								<dd>HTML panel content.</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
+Parameters:<ul><li><tt>{string}</tt> <var>id</var> 
+DOM Node identifier.</li></ul>Returns:<ul><li><tt>{Node}</tt> DOM Node.</li></ul><hr />
+<b name="getVertexByCoords">
 
-					<hr />
-				
-					<a name="trackMouse"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>trackMouse</b>(e)
-					
-					</div>
-					<div class="description">
-						Tracks the mouse movements
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{Event}</span> <b>e</b>
-									
-								</dt>
-								<dd>DOM Mouse Event.</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
+<tt>{<a href="../symbols/_global_.html#integer">integer</a>}</tt>
+getVertexByCoords</b>&thinsp;(&thinsp;<var>c</var>&thinsp;)
+<p>
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
 
-					<hr />
-				
-					<a name="vertex"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{<a href="../symbols/Vertex.html">Vertex</a>}</span>
-					<b>vertex</b>(props)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{Object}</span> <b>props</b>
-									
-								</dt>
-								<dd>Vertex properties (the same object w/o methods).</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{<a href="../symbols/Vertex.html">Vertex</a>}</span> Vertex object.</dd>
-							
-							</dl>
-						
-						
-						
+</p>
 
-					
-				
+
+Parameters:<ul><li><tt>{<a href="../symbols/Coords.html">Coords</a>}</tt> <var>c</var> 
+The coords searched.</li></ul>Returns:<ul><li><tt>{<a href="../symbols/_global_.html#integer">integer</a>}</tt> The vertex index, if any, located here.</li></ul><hr />
+<b name="getVertexByTitle">
+
+<tt>{<a href="../symbols/_global_.html#integer">integer</a>}</tt>
+getVertexByTitle</b>&thinsp;(&thinsp;<var>title</var>&thinsp;)
+<p>Search the graph for a vertex called "title" and return its index
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
+
+Parameters:<ul><li><tt>{string}</tt> <var>title</var> 
+The vertex title.</li></ul>Returns:<ul><li><tt>{<a href="../symbols/_global_.html#integer">integer</a>}</tt> the index of the found node in the graph array.</li></ul><hr />
+<b name="helpPanel">
+
+
+helpPanel</b>&thinsp;(&thinsp;&thinsp;)
+<p>Shows Help panel
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
+<hr />
+<b name="importFromUrl">
+
+
+importFromUrl</b>&thinsp;(&thinsp;<var>url</var>&thinsp;)
+<p>
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
+
+Parameters:<ul><li><tt>{string}</tt> <var>url</var> 
+The url containing JSON data.</li></ul><hr />
+<b name="importPanel">
+
+
+importPanel</b>&thinsp;(&thinsp;&thinsp;)
+<p>Opens the Import panel
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
+<hr />
+<b name="licenseLink">
+
+<tt>{string}</tt>
+licenseLink</b>&thinsp;(&thinsp;<var>licenseId</var>&thinsp;)
+<p>
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
+
+Parameters:<ul><li><tt>{string}</tt> <var>licenseId</var> 
+The license identifier.</li></ul>Returns:<ul><li><tt>{string}</tt> The license link.</li></ul><hr />
+<b name="savePanel">
+
+
+savePanel</b>&thinsp;(&thinsp;&thinsp;)
+<p>Opens the Import panel
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
+<hr />
+<b name="selectVertex">
+
+
+selectVertex</b>&thinsp;(&thinsp;&thinsp;)
+<p>User Interface click event
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
+<hr />
+<b name="setCanvasSize">
+
+
+setCanvasSize</b>&thinsp;(&thinsp;&thinsp;)
+<p>Adjust the canvas size to the window
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
+<hr />
+<b name="sharePanel">
+
+
+sharePanel</b>&thinsp;(&thinsp;&thinsp;)
+<p>Shows Share panel
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
+<hr />
+<b name="showMenu">
+
+
+showMenu</b>&thinsp;(&thinsp;&thinsp;)
+<p>Shows the User Interface (UI) menu
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
+<hr />
+<b name="showPanel">
+
+
+showPanel</b>&thinsp;(&thinsp;<var>title</var>, <var>content</var>&thinsp;)
+<p>Shows a panel
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
+
+Parameters:<ul><li><tt>{string}</tt> <var>title</var> 
+The panel name.</li><li><tt>{string}</tt> <var>content</var> 
+HTML panel content.</li></ul><hr />
+<b name="trackMouse">
+
+
+trackMouse</b>&thinsp;(&thinsp;<var>e</var>&thinsp;)
+<p>Tracks the mouse movements
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
+
+Parameters:<ul><li><tt>{Event}</tt> <var>e</var> 
+DOM Mouse Event.</li></ul><hr />
+<b name="vertex">
+
+<tt>{<a href="../symbols/Vertex.html">Vertex</a>}</tt>
+vertex</b>&thinsp;(&thinsp;<var>props</var>&thinsp;)
+<p>
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
+
+Parameters:<ul><li><tt>{Object}</tt> <var>props</var> 
+Vertex properties (the same object w/o methods).</li></ul>Returns:<ul><li><tt>{<a href="../symbols/Vertex.html">Vertex</a>}</tt> Vertex object.</li></ul>
 			
-			
-<!-- ============================== event details ========================= -->		
-			
-			
-			<hr />
-		</div>
-
-		
-<!-- ============================== footer ================================= -->
-		<div class="fineprint" style="clear:both">
-			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Feb 26 2013 15:24:05 GMT+0100 (CET)
-		</div>
-	</body>
-</html>
+<hr />
+</section>
