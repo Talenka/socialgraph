@@ -29,8 +29,6 @@ java -jar closure/compiler.jar --js SocialGraph.js --js_output_file SocialGraph.
 # @todo simplify these lines
 JS=$(cat SocialGraph.min.js)
 # the -n option for echo suppress the trailling new line
-echo -n ${JS} >> SocialGraph.min.js
-JS=$(cat SocialGraph.min.js)
 rm SocialGraph.min.js
 echo -n ${JS} >> SocialGraph.min.js
 

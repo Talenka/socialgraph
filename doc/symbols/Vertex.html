@@ -9,7 +9,7 @@ section{display:block;margin:0 auto;max-width:600px}
 ul{font-size:smaller}
 tt,tt a{font-family:"Courier New",Courier,monospace;color:rgb(249,38,114)}
 var{color:rgb(253,151,32)}
-p{color:rgb(117,113,74);padding: 0 0 0 25px}</style>
+p{color:#75715e;padding: 0 0 0 25px}</style>
 
 <section>
 <h1><a href=../..>SocialGraph</a> / <a href=..>Documentation</a> /  Class Vertex</h1>
@@ -29,15 +29,10 @@ p{color:rgb(117,113,74);padding: 0 0 0 25px}</style>
 <tt>new</tt> <a href="../symbols/Vertex.html#constructor">Vertex</a>
 &thinsp;(&thinsp;<var>props</var>&thinsp;)
 <p>Graph vertex (also called node)</p>
-
-
-
-<h3>Properties</h3><ul>
-<li><a href="../symbols/Vertex.html#color">color</a></li><li><a href="../symbols/Vertex.html#description">description</a></li><li><a href="../symbols/Vertex.html#details">details</a></li><li><a href="../symbols/Vertex.html#image">image</a></li><li><a href="../symbols/Vertex.html#links">links</a></li><li><a href="../symbols/Vertex.html#mass">mass</a></li><li><a href="../symbols/Vertex.html#members">members</a></li><li><tt>&lt;inner&gt;</tt> <a href="../symbols/Vertex.html#-nColor">nColor</a></li><li><a href="../symbols/Vertex.html#position">position</a></li><li><a href="../symbols/Vertex.html#radius">radius</a></li><li><a href="../symbols/Vertex.html#title">title</a></li><li><a href="../symbols/Vertex.html#type">type</a></li></ul>
+<h3>Properties</h3><ul><li><a href="../symbols/Vertex.html#color">color</a></li><li><a href="../symbols/Vertex.html#description">description</a></li><li><a href="../symbols/Vertex.html#details">details</a></li><li><a href="../symbols/Vertex.html#image">image</a></li><li><a href="../symbols/Vertex.html#links">links</a></li><li><a href="../symbols/Vertex.html#mass">mass</a></li><li><a href="../symbols/Vertex.html#members">members</a></li><li><tt>&lt;inner&gt;</tt> <a href="../symbols/Vertex.html#-nColor">nColor</a></li><li><a href="../symbols/Vertex.html#position">position</a></li><li><a href="../symbols/Vertex.html#radius">radius</a></li><li><a href="../symbols/Vertex.html#title">title</a></li><li><a href="../symbols/Vertex.html#type">type</a></li></ul>
 				
 
 			
-
 
 
 
@@ -50,6 +45,9 @@ p{color:rgb(117,113,74);padding: 0 0 0 25px}</style>
 <p>Draw the vertex</p></li>
 
 <li><a href="../symbols/Vertex.html#drawLinkTo">drawLinkTo</a>&thinsp;(&thinsp;<var>v</var>, <var>selected</var>&thinsp;)
+</li>
+
+<li><a href="../symbols/Vertex.html#path">path</a>&thinsp;(&thinsp;<var>coordsList</var>&thinsp;)
 </li>
 
 <li><a href="../symbols/Vertex.html#speed">speed</a>&thinsp;(&thinsp;&thinsp;)
@@ -66,16 +64,12 @@ The node speed is determined by two attraction trap:
 
 
 
-	
-
 <h2 id="constructor">Class Detail</h2>			
 
 Vertex&thinsp;(&thinsp;<var>props</var>&thinsp;)			
 <p>Graph vertex (also called node)
 
-</p>
-				
-
+</p>			
 
 
 Parameters:
@@ -88,8 +82,7 @@ Vertex properties (the same object w/o methods).</li>
 </ul>
 
 
-					
-					
+
 
 Returns<ul>
 <li><tt>{<a href="../symbols/Vertex.html">Vertex</a>}</tt> Vertex object.</li>
@@ -224,6 +217,18 @@ drawLinkTo</b>&thinsp;(&thinsp;<var>v</var>, <var>selected</var>&thinsp;)
 Parameters:<ul><li><tt>{<a href="../symbols/Vertex.html">Vertex</a>}</tt> <var>v</var> 
 Targeted vertex.</li><li><tt>{boolean}</tt> <var>selected</var> 
 Whether the vertex is selected.</li></ul>Returns:<ul><li><tt>{<a href="../symbols/Vertex.html">Vertex</a>}</tt> The same vertex.</li></ul><hr />
+<b name="path">
+
+<tt>{<a href="../symbols/Vertex.html">Vertex</a>}</tt>
+path</b>&thinsp;(&thinsp;<var>coordsList</var>&thinsp;)
+<p>
+
+
+</p>
+
+
+Parameters:<ul><li><tt>{Array.<Coords>}</tt> <var>coordsList</var> 
+Coords list of path to draw.</li></ul>Returns:<ul><li><tt>{<a href="../symbols/Vertex.html">Vertex</a>}</tt> The same vertex.</li></ul><hr />
 <b name="speed">
 
 <tt>{<a href="../symbols/Coords.html">Coords</a>}</tt>

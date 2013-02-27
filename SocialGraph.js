@@ -65,6 +65,13 @@ var predefinedColors = ['223,87,69', '40,207,174', '99,129,208', '138,219,76',
                         '205,167,31', '211,81,177', '93,161,72'];
 
 /**
+ * Base URL of creatives commons licenses
+ * @const
+ * @type {string}
+ */
+var creativeCommons = '//creativecommons.org/licenses/';
+
+/**
  * Licences list
  * @type {Array.<integer, {id: string, name: string, url: string}>}
  * @const
@@ -73,47 +80,42 @@ var predefinedLicenses = [
     {
         id: 'GNU-GPL',
         name: 'GNU General Public License',
-        url: 'https://www.gnu.org/licenses/gpl.html'
+        url: '//www.gnu.org/licenses/gpl.html'
     },
     {
         id: 'GNU-FDL',
         name: 'GNU Free Documentation License',
-        url: 'https://www.gnu.org/licenses/fdl.html'
+        url: '//www.gnu.org/licenses/fdl.html'
     },
     {
         id: 'CC-BY-SA',
         name: 'Creative Commons Attribution and Share-alike License',
-        url: 'https://creativecommons.org/licenses/by-sa/3.0/'
+        url: creativeCommons + 'by-sa/3.0/'
     },
     {
         id: 'CC-BY',
         name: 'Creative Commons Attribution',
-        url: 'https://creativecommons.org/licenses/by/3.0/'
+        url: creativeCommons + 'by/3.0/'
     },
     {
         id: 'CC-BY-NC-SA',
         name: 'Creative Commons Attribution, Non-commercial and Share-alike',
-        url: 'https://creativecommons.org/licenses/by-nc-sa/3.0/'
+        url: creativeCommons + 'by-nc-sa/3.0/'
     },
     {
         id: 'CC-BY-NC-ND',
         name: 'Creative Commons Attribution, Non-commercial and No-derivatives',
-        url: 'https://creativecommons.org/licenses/by-nc-nd/3.0/'
+        url: creativeCommons + 'by-nc-nd/3.0/'
     },
     {
         id: 'CC-0',
         name: 'Creative Commons Public Domain Dedication',
-        url: 'https://creativecommons.org/publicdomain/zero/1.0/'
+        url: creativeCommons + '../publicdomain/zero/1.0/'
     },
     {
         id: 'COPYRIGHT',
         name: 'Copyright ' + (new Date).getFullYear() + '. All right reserved',
-        url: 'https://en.wikipedia.org/wiki/Copyright'
-    },
-    {
-        id: 'MIT',
-        name: 'MIT Licence',
-        url: 'http://opensource.org/licenses/MIT'
+        url: '//en.wikipedia.org/wiki/Copyright'
     },
     {
         id: 'WTFPL',
@@ -123,24 +125,28 @@ var predefinedLicenses = [
 ];
 
 /**
+ * Base URL of the website (TODO Explicit protocol needed?)
  * @const
  * @type {string}
  */
 var SocialGraphUrl = document.location.protocol + '//socialgraph.boudah.pl/';
 
 /**
+ * Base URL of the project
  * @const
  * @type {string}
  */
 var githubProjectUrl = '//github.com/talenka/socialgraph/';
 
 /**
+ * Default external links target
  * @const
  * @type {string}
  */
 var linksTarget = 'target=_blank';
 
 /**
+ * List of vertex types
  * @const
  * @type {Array.<string>}
  */
@@ -440,27 +446,28 @@ function Vertex(props) {
         context.fillStyle = 'rgba(' + this.color + ',' + (opacity / 2) + ')';
         context.strokeStyle = 'rgba(' + this.color + ',' + (opacity) + ')';
 
-        if (this.type === vertexTypes[0]) { // Circle for organizations
+        // Circle for organizations
+        if (this.type === vertexTypes[0])
             // Optimization : Math.PI * 2 = 6.283185
             context.arc(position.x, position.y, this.radius, 0, 6.283185);
 
-        }
-        else if (this.type === vertexTypes[1]) { // Square for people
-            context.moveTo(position.x - this.radius, position.y - this.radius);
-            context.lineTo(position.x + this.radius, position.y - this.radius);
-            context.lineTo(position.x + this.radius, position.y + this.radius);
-            context.lineTo(position.x - this.radius, position.y + this.radius);
-        }
-        else if (this.type === vertexTypes[2]) { // Diamond for projects
-            context.moveTo(position.x - this.radius, position.y);
-            context.lineTo(position.x, position.y - this.radius);
-            context.lineTo(position.x + this.radius, position.y);
-            context.lineTo(position.x, position.y + this.radius);
-        }
+        // Square for people
+        else if (this.type === vertexTypes[1])
+            this.path([position.plus(coords(- this.radius, - this.radius)),
+                        position.plus(coords(this.radius, - this.radius)),
+                        position.plus(coords(this.radius, this.radius)),
+                        position.plus(coords(- this.radius, this.radius))]);
+
+        // Diamond for projects (and others if any)
+        else this.path([position.plus(coords(- this.radius, 0)),
+                        position.plus(coords(0, - this.radius)),
+                        position.plus(coords(this.radius, 0)),
+                        position.plus(coords(0, this.radius))]);
 
         context.closePath();
         context.stroke();
         context.fill();
+
         context.fillStyle = '#000';
         context.font = '600 ' + textSize + 'px Helvetica';
         context.textAlign = 'center';
@@ -505,13 +512,27 @@ function Vertex(props) {
 
         context.beginPath();
         context.lineWidth = selected ? 3 : 1;
-        context.moveTo(arrowStart.x, arrowStart.y);
         context.strokeStyle = 'rgba(' + this.color + ',.8)';
-        context.lineTo(arrowEnd.x, arrowEnd.y);
-        context.lineTo(arrowWing1.x, arrowWing1.y);
-        context.moveTo(arrowEnd.x, arrowEnd.y);
-        context.lineTo(arrowWing2.x, arrowWing2.y);
+
+        this.path([arrowStart, arrowEnd, arrowWing1])
+            .path([arrowEnd, arrowWing2]);
+
         context.stroke();
+
+        return this;
+    };
+
+    /**
+     * @param {Array.<Coords>} coordsList Coords list of path to draw.
+     * @this {Vertex}
+     * @return {Vertex} The same vertex.
+     */
+    this.path = function(coordsList) {
+
+        for (var c = 0, l = coordsList.length; c < l; c++)
+
+            if (c == 0) context.moveTo(coordsList[c].x, coordsList[c].y);
+            else context.lineTo(coordsList[c].x, coordsList[c].y);
 
         return this;
     };
@@ -716,12 +737,7 @@ function showPanel(title, content) {
     content = '<button id=close class=right>Close</button>' +
                 '<h1>' + title + '</h1>' + content;
 
-    if (!getId('panel'))
-    {
-        /** @type {Node} */
-        var panel = create('section');
-        panel.setAttribute('id', 'panel');
-    }
+    if (!getId('panel')) create('section').setAttribute('id', 'panel');
 
     getId('panel').innerHTML = content;
     getId('close').onclick = closePanel;
@@ -731,8 +747,8 @@ function showPanel(title, content) {
  * @param {string} licenseId The license identifier.
  * @return {string} The license link.
  */
-function licenseLink(licenseId)
-{
+function licenseLink(licenseId) {
+
     for (var i = 0, j = predefinedLicenses.length; i < j; i++)
         if (predefinedLicenses[i].id === licenseId)
         {
@@ -784,18 +800,11 @@ function addNewVertex() {
  */
 function savePanel() {
 
-    /** @type {string} */
-    var licensesHtmlSelect = '<select id=graphLicense>';
+    /** @type {Object} */
+    var licenses = {};
 
     for (var i = 0, j = predefinedLicenses.length; i < j; i++)
-    {
-        licensesHtmlSelect += '<option value="' +
-                                predefinedLicenses[i].id + '">' +
-                                predefinedLicenses[i].name +
-                                '</option>';
-    }
-
-    licensesHtmlSelect += '</select>';
+        licenses[predefinedLicenses[i].id] = predefinedLicenses[i].name;
 
     showPanel('Save this graph',
             '<button id=saveOffline>Save on my computer</button>' +
@@ -803,24 +812,16 @@ function savePanel() {
             '<button id=saveOnline>Save on the web</button>' +
             ' with the password <input type=password id=graphPass value="">' +
             ' and visible to </label> ' +
-            '<select id=graphVisibility>' +
-                '<option value=private>me (with the password)</option>' +
-                '<option value=protected>those who have the link</option>' +
-                '<option value=public>everyone (public)</option>' +
-            '</select>' +
-                '. Publish under ' +
-                    licensesHtmlSelect +
+            select('graphVisibility',
+                    {'private': 'me (with the password)',
+                    'protected': 'those who have the link',
+                    'public': 'everyone (public)'}, graph.metadata.visibility) +
+            '. Publish under ' +
+            select('graphLicense', licenses, graph.metadata.license) +
             '<hr />' +
-        '<button id=download>Download</button> the ' +
-            '<select id=exportData>' +
-                '<option value=Graph>Graph</option>' +
-                '<option value=contacts>Contact list</option>' +
-            '</select>' +
-        ' in the ' +
-            '<select id=exportFormat>' +
-                '<option value=json>JSON</option>' +
-                '<option value=atom>Atom</option>' +
-            '</select>' +
+            '<button id=download>Download</button> the ' +
+            select('exportData', {'Graph': 'Graph', 'Contacts': 'Contacts'}) +
+        ' in the ' + select('exportFormat', {'json': 'JSON', 'atom': 'Atom'}) +
         ' format.');
 
     getId('download').onclick = download;
@@ -1049,8 +1050,8 @@ function getDataFromUrl(url, callback) {
 /**
  * @param {string} url The url containing JSON data.
  */
-function importFromUrl(url)
-{
+function importFromUrl(url) {
+
     getDataFromUrl(url, function(data) {
         var buffer = window.JSON.parse(data);
 
@@ -1082,6 +1083,7 @@ function importFromUrl(url)
  * @return {Node} DOM Node.
  */
 function getId(id) {
+
     return document.getElementById(id);
 }
 
@@ -1090,9 +1092,8 @@ function getId(id) {
  * @param {string} tagName The < tag name > .
  * @return {Node} The DOM Node.
  */
-function create(tagName)
-{
-    /** @type {Node} */
+function create(tagName) {
+
     var node = document.createElement(tagName);
 
     document.body.appendChild(node);
@@ -1107,6 +1108,23 @@ function create(tagName)
 function trackMouse(e) {
 
     context.mouse = coords(e.clientX, e.clientY).minus(context.center);
+}
+
+/**
+ * @param {string} id The select tag identifier.
+ * @param {Object.<string, string>} options Options list {"value": "label"...}.
+ * @param {string=} selected The selected item.
+ * @return {string} html select tag.
+ */
+function select(id, options, selected) {
+
+    var html = '<select id=' + id + '>';
+
+    for (var val in options) html += '<option value="' + val + '"' +
+                                ((val == selected) ? 'selected=selected' : '') +
+                                        '>' + options[val] + '</option>';
+
+    return html + '</select>';
 }
 
 
@@ -1130,15 +1148,11 @@ window.onload = function() {
     var width = window.innerWidth;
 
     canvas.setAttribute('id', 'canvas');
-    canvas.width = width;
-    canvas.height = height;
+    context = canvas.getContext('2d');
+    context.width = canvas.width = width;
+    context.height = canvas.height = height;
     canvas.onclick = selectVertex;
     canvas.ondblclick = editPanel;
-
-    // We create and stylish the draw context
-    context = canvas.getContext('2d');
-    context.width = width;
-    context.height = height;
     context.center = coords(width / 2, height / 2);
     context.zoom = 1;
     context.mouse = coords(0, 0);

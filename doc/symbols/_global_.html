@@ -9,7 +9,7 @@ section{display:block;margin:0 auto;max-width:600px}
 ul{font-size:smaller}
 tt,tt a{font-family:"Courier New",Courier,monospace;color:rgb(249,38,114)}
 var{color:rgb(253,151,32)}
-p{color:rgb(117,113,74);padding: 0 0 0 25px}</style>
+p{color:#75715e;padding: 0 0 0 25px}</style>
 
 <section>
 <h1><a href=../..>SocialGraph</a> / <a href=..>Documentation</a> /  Built-In Namespace _global_</h1>
@@ -21,15 +21,10 @@ p{color:rgb(117,113,74);padding: 0 0 0 25px}</style>
 
 </p>
 		
-
-
-
-<h3>Properties</h3><ul>
-<li><a href="../symbols/_global_.html#ajax">ajax</a><p>The ressource to perform asynchronous requests (AJAX)</p></li><li><a href="../symbols/_global_.html#context">context</a><p>Context linked to the drawable canvas element.</p></li><li><a href="../symbols/_global_.html#githubProjectUrl">githubProjectUrl</a></li><li><a href="../symbols/_global_.html#graph">graph</a><p>Graph data.</p></li><li><a href="../symbols/_global_.html#graphKey">graphKey</a><p>The graph cipher key (must be kept from the server and from strangers).</p></li><li><a href="../symbols/_global_.html#integer">integer</a></li><li><a href="../symbols/_global_.html#linksTarget">linksTarget</a></li><li><a href="../symbols/_global_.html#minimalMass">minimalMass</a><p>Lower boundary for objects mass</p></li><li><a href="../symbols/_global_.html#objectsDensity">objectsDensity</a><p>Ratio between the radius of an object and its mass</p></li><li><a href="../symbols/_global_.html#objectsMargin">objectsMargin</a><p>Minimal space between two objects (in pixels)</p></li><li><a href="../symbols/_global_.html#predefinedColors">predefinedColors</a><p>Little dictionnary of predefined colors in "Red,Green,Blue" format</p></li><li><a href="../symbols/_global_.html#predefinedLicenses">predefinedLicenses</a><p>Licences list</p></li><li><a href="../symbols/_global_.html#selectedVertices">selectedVertices</a><p>List of currently selected vertices.</p></li><li><a href="../symbols/_global_.html#SocialGraphUrl">SocialGraphUrl</a></li><li><a href="../symbols/_global_.html#timeStep">timeStep</a><p>Time step of the animation (in milliseconds).</p></li><li><a href="../symbols/_global_.html#vertexTypes">vertexTypes</a></li></ul>
+<h3>Properties</h3><ul><li><a href="../symbols/_global_.html#ajax">ajax</a><p>The ressource to perform asynchronous requests (AJAX)</p></li><li><a href="../symbols/_global_.html#context">context</a><p>Context linked to the drawable canvas element.</p></li><li><a href="../symbols/_global_.html#creativeCommons">creativeCommons</a><p>Base URL of creatives commons licenses</p></li><li><a href="../symbols/_global_.html#githubProjectUrl">githubProjectUrl</a><p>Base URL of the project</p></li><li><a href="../symbols/_global_.html#graph">graph</a><p>Graph data.</p></li><li><a href="../symbols/_global_.html#graphKey">graphKey</a><p>The graph cipher key (must be kept from the server and from strangers).</p></li><li><a href="../symbols/_global_.html#integer">integer</a></li><li><a href="../symbols/_global_.html#linksTarget">linksTarget</a><p>Default external links target</p></li><li><a href="../symbols/_global_.html#minimalMass">minimalMass</a><p>Lower boundary for objects mass</p></li><li><a href="../symbols/_global_.html#objectsDensity">objectsDensity</a><p>Ratio between the radius of an object and its mass</p></li><li><a href="../symbols/_global_.html#objectsMargin">objectsMargin</a><p>Minimal space between two objects (in pixels)</p></li><li><a href="../symbols/_global_.html#predefinedColors">predefinedColors</a><p>Little dictionnary of predefined colors in "Red,Green,Blue" format</p></li><li><a href="../symbols/_global_.html#predefinedLicenses">predefinedLicenses</a><p>Licences list</p></li><li><a href="../symbols/_global_.html#selectedVertices">selectedVertices</a><p>List of currently selected vertices.</p></li><li><a href="../symbols/_global_.html#SocialGraphUrl">SocialGraphUrl</a><p>Base URL of the website (TODO Explicit protocol needed?)</p></li><li><a href="../symbols/_global_.html#timeStep">timeStep</a><p>Time step of the animation (in milliseconds).</p></li><li><a href="../symbols/_global_.html#vertexTypes">vertexTypes</a><p>List of vertex types</p></li></ul>
 				
 
 			
-
 
 
 
@@ -96,6 +91,9 @@ TODO: clean user inputs.</p></li>
 <li><a href="../symbols/_global_.html#savePanel">savePanel</a>&thinsp;(&thinsp;&thinsp;)
 <p>Opens the Import panel</p></li>
 
+<li><a href="../symbols/_global_.html#select">select</a>&thinsp;(&thinsp;<var>id</var>, <var>options</var>, <var>selected</var>&thinsp;)
+</li>
+
 <li><a href="../symbols/_global_.html#selectVertex">selectVertex</a>&thinsp;(&thinsp;&thinsp;)
 <p>User Interface click event</p></li>
 
@@ -121,8 +119,6 @@ TODO: clean user inputs.</p></li>
 
 
 
-	
-
 
 <h3>Field Detail</h3><b id="ajax">ajax</b>
 <p>The ressource to perform asynchronous requests (AJAX)<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
@@ -138,8 +134,15 @@ TODO: clean user inputs.</p></li>
 
 
 
+<hr /><b id="creativeCommons">creativeCommons</b>
+<p>Base URL of creatives commons licenses<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+
+
+
+
+
 <hr /><b id="githubProjectUrl">githubProjectUrl</b>
-<p><br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+<p>Base URL of the project<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
 
 
 
@@ -167,7 +170,7 @@ TODO: clean user inputs.</p></li>
 
 
 <hr /><b id="linksTarget">linksTarget</b>
-<p><br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+<p>Default external links target<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
 
 
 
@@ -216,7 +219,7 @@ TODO: clean user inputs.</p></li>
 
 
 <hr /><b id="SocialGraphUrl">SocialGraphUrl</b>
-<p><br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+<p>Base URL of the website (TODO Explicit protocol needed?)<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
 
 
 
@@ -230,7 +233,7 @@ TODO: clean user inputs.</p></li>
 
 
 <hr /><b id="vertexTypes">vertexTypes</b>
-<p><br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
+<p>List of vertex types<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.</p>
 
 
 
@@ -463,6 +466,20 @@ savePanel</b>&thinsp;(&thinsp;&thinsp;)
 </p>
 
 <hr />
+<b name="select">
+
+<tt>{string}</tt>
+select</b>&thinsp;(&thinsp;<var>id</var>, <var>options</var>, <var>selected</var>&thinsp;)
+<p>
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
+
+Parameters:<ul><li><tt>{string}</tt> <var>id</var> 
+The select tag identifier.</li><li><tt>{Object.<string|string>}</tt> <var>options</var> 
+Options list {"value": "label"...}.</li><li><tt>{string=}</tt> <var>selected</var> 
+The selected item.</li></ul>Returns:<ul><li><tt>{string}</tt> html select tag.</li></ul><hr />
 <b name="selectVertex">
 
 
