@@ -12,7 +12,7 @@
 # We check style and language errors and warnings,
 # just because we care. For this we use the closure-linter. Mac OS setup: 
 # sudo easy_install http://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz
-gjslint SocialGraph.js --strict
+gjslint -r . --strict
 
 # We use JSDoc Toolkit for generating documentation. Download it here:
 # https://jsdoc-toolkit.googlecode.com/files/jsdoc_toolkit-2.4.0.zip
@@ -23,7 +23,7 @@ java -jar ../tools/js/jsdoc-toolkit/jsrun.jar \
 --t=../tools/js/jsdoc-toolkit/templates/jsdoc/ SocialGraph.js
 
 # We use Closure compiler for Javascript Minification. Download it here:
-# http://closure-compiler.googlecode.com/files/compiler-latest.zip
+# https://closure-compiler.googlecode.com/files/compiler-latest.zip
 java -jar ../tools/js/closure/compiler.jar \
 --js SocialGraph.js \
 --js_output_file SocialGraph.min.js \
