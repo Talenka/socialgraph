@@ -1,6 +1,7 @@
 Draw [social graphs](https://en.wikipedia.org/wiki/Social_graph) of organizations, people, interaction and projects.
 
-# [Online demo](http://socialgraph.boudah.pl/?demo)
+* [Online demo](http://socialgraph.boudah.pl/?demo)
+* [documentation](http://socialgraph.boudah.pl/doc/)
 
 It is a brand new project, __Comments and help are welcomed__.
 
@@ -15,11 +16,3 @@ It is a brand new project, __Comments and help are welcomed__.
 ## Licence
 
 This work was started by [Boudah Talenka](http://boudah.pl) and is freely distributed under the [GNU General Public Licence](https://www.gnu.org/licenses/gpl.html).
-
-## Under the hood
-
-SocialGraph use:
-
-* [Closure linter](https://code.google.com/p/closure-linter/) to check and polish the script.
-* [Closure compiler](http://closure-compiler.googlecode.com/) to optimize and minify the script.
-* [JSDoc Toolkit](https://code.google.com/p/jsdoc-toolkit/) to generate the [documentation](http://socialgraph.boudah.pl/doc/).
