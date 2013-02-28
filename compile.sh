@@ -15,19 +15,37 @@
 gjslint SocialGraph.js --strict
 
 # We use JSDoc Toolkit for generating documentation. Download it here:
-# https://code.google.com/p/jsdoc-toolkit/downloads/detail?name=jsdoc_toolkit-2.4.0.zip
-java -jar jsdoc-toolkit/jsrun.jar jsdoc-toolkit/app/run.js \
---debug --directory=doc --t=jsdoc-toolkit/templates/jsdoc/ SocialGraph.js
+# https://jsdoc-toolkit.googlecode.com/files/jsdoc_toolkit-2.4.0.zip
+java -jar ../tools/js/jsdoc-toolkit/jsrun.jar \
+../tools/js/jsdoc-toolkit/app/run.js \
+--debug \
+--directory=doc \
+--t=../tools/js/jsdoc-toolkit/templates/jsdoc/ SocialGraph.js
 
 # We use Closure compiler for Javascript Minification. Download it here:
 # http://closure-compiler.googlecode.com/files/compiler-latest.zip
-java -jar closure/compiler.jar --js SocialGraph.js --js_output_file SocialGraph.min.js \
---charset UTF-8 --compilation_level ADVANCED_OPTIMIZATIONS \
---use_types_for_optimization --warning_level VERBOSE --accept_const_keyword
+java -jar ../tools/js/closure/compiler.jar \
+--js SocialGraph.js \
+--js_output_file SocialGraph.min.js \
+--charset UTF-8 \
+--compilation_level ADVANCED_OPTIMIZATIONS \
+--use_types_for_optimization \
+--warning_level VERBOSE \
+--accept_const_keyword
 
 # We strip some lasting whitespaces (why are they here?)
 # @todo simplify these lines
 JS=$(cat SocialGraph.min.js)
+# the -n option for echo suppress the trailling new line
+rm SocialGraph.min.js
+echo -n ${JS} >> SocialGraph.min.js
+JS=$(cat SocialGraph.min.js)
+# The followinf spaces stripping are totally unsafe, of course,
+# But it saves some bytes, and it works until now! 
+JS=${JS//\} /\}}
+JS=${JS//; /;}
+JS=${JS//= /=}
+
 # the -n option for echo suppress the trailling new line
 rm SocialGraph.min.js
 echo -n ${JS} >> SocialGraph.min.js

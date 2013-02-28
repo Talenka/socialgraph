@@ -9,12 +9,16 @@ a
     text-decoration: none;
 }
 
-canvas
+canvas, nav
 {
     display: block;
-    position: absolute;
-    left: 0px;
-    top: 0px;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+canvas
+{
     width: 100%;
     height: 100%;
 }
@@ -34,17 +38,13 @@ canvas
     border: 1px #bbb solid;
 }
 
-.right, nav button
+.right, nav button, #Close
 {
     float: right;
 }
 
 nav
 {
-    display: block;
-    position: fixed;
-    left: 0;
-    top: 0;
     right: 0;
     padding: 2px 5px;
 }
@@ -54,7 +54,7 @@ button
     border: 1px #ddd solid;
     border-bottom-color: #bbb;
     background-color: #f5f5f5;
-    background-image: -moz-linear-gradient(transparent, rgba(0, 0, 0, .2));
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, .2));
     padding: 3px 9px;
     border-radius: 3px;
     font-size: 12px;
@@ -67,12 +67,16 @@ button
 
 button:hover
 {
-    cursor: pointer;
-    background-image: -moz-linear-gradient(transparent, rgba(0, 0, 0, .3));
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, .3));
     color: #222;
 }
 
-#new, #new:hover
+button:hover, #meta
+{
+    cursor: pointer;
+}
+
+#New, #New:hover
 {
     background-color: #8add6d;
     border-color: #74bb5a #74bb5a #509438;
@@ -80,7 +84,7 @@ button:hover
     color: #fff;
 }
 
-#close
+#Close
 {
     color: #f00;
 }

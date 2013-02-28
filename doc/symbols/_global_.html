@@ -36,13 +36,16 @@ p{color:#75715e;padding: 0 0 0 25px}</style>
 <li><a href="../symbols/_global_.html#animate">animate</a>&thinsp;(&thinsp;&thinsp;)
 <p>Animates the graph</p></li>
 
+<li><a href="../symbols/_global_.html#button">button</a>&thinsp;(&thinsp;<var>id</var>, <var>label</var>&thinsp;)
+</li>
+
 <li><a href="../symbols/_global_.html#closePanel">closePanel</a>&thinsp;(&thinsp;&thinsp;)
 <p>Closes the opened panel</p></li>
 
 <li><a href="../symbols/_global_.html#coords">coords</a>&thinsp;(&thinsp;<var>x</var>, <var>y</var>&thinsp;)
 </li>
 
-<li><a href="../symbols/_global_.html#create">create</a>&thinsp;(&thinsp;<var>tagName</var>&thinsp;)
+<li><a href="../symbols/_global_.html#create">create</a>&thinsp;(&thinsp;<var>tagName</var>, <var>id</var>&thinsp;)
 <p>Create a DOM Element and append it to the DOM body</p></li>
 
 <li><a href="../symbols/_global_.html#displayError">displayError</a>&thinsp;(&thinsp;<var>message</var>&thinsp;)
@@ -106,8 +109,11 @@ TODO: clean user inputs.</p></li>
 <li><a href="../symbols/_global_.html#showMenu">showMenu</a>&thinsp;(&thinsp;&thinsp;)
 <p>Shows the User Interface (UI) menu</p></li>
 
-<li><a href="../symbols/_global_.html#showPanel">showPanel</a>&thinsp;(&thinsp;<var>title</var>, <var>content</var>&thinsp;)
+<li><a href="../symbols/_global_.html#showPanel">showPanel</a>&thinsp;(&thinsp;<var>head</var>, <var>body</var>&thinsp;)
 <p>Shows a panel</p></li>
+
+<li><a href="../symbols/_global_.html#tag">tag</a>&thinsp;(&thinsp;<var>tagName</var>, <var>innerHTML</var>, <var>id</var>&thinsp;)
+</li>
 
 <li><a href="../symbols/_global_.html#trackMouse">trackMouse</a>&thinsp;(&thinsp;<var>e</var>&thinsp;)
 <p>Tracks the mouse movements</p></li>
@@ -263,6 +269,19 @@ animate</b>&thinsp;(&thinsp;&thinsp;)
 </p>
 
 <hr />
+<b name="button">
+
+<tt>{string}</tt>
+button</b>&thinsp;(&thinsp;<var>id</var>, <var>label</var>&thinsp;)
+<p>
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
+
+Parameters:<ul><li><tt>{string}</tt> <var>id</var> 
+Node Identifier.</li><li><tt>{string=}</tt> <var>label</var> 
+Button title.</li></ul>Returns:<ul><li><tt>{string}</tt> The Html button.</li></ul><hr />
 <b name="closePanel">
 
 
@@ -289,7 +308,7 @@ Vertical component.</li></ul>Returns:<ul><li><tt>{<a href="../symbols/Coords.htm
 <b name="create">
 
 <tt>{Node}</tt>
-create</b>&thinsp;(&thinsp;<var>tagName</var>&thinsp;)
+create</b>&thinsp;(&thinsp;<var>tagName</var>, <var>id</var>&thinsp;)
 <p>Create a DOM Element and append it to the DOM body
 <br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
 
@@ -297,7 +316,8 @@ create</b>&thinsp;(&thinsp;<var>tagName</var>&thinsp;)
 
 
 Parameters:<ul><li><tt>{string}</tt> <var>tagName</var> 
-The < tag name > .</li></ul>Returns:<ul><li><tt>{Node}</tt> The DOM Node.</li></ul><hr />
+The < tag name > .</li><li><tt>{string}</tt> <var>id</var> 
+The Node identifier.</li></ul>Returns:<ul><li><tt>{Node}</tt> The DOM Node.</li></ul><hr />
 <b name="displayError">
 
 
@@ -477,8 +497,8 @@ select</b>&thinsp;(&thinsp;<var>id</var>, <var>options</var>, <var>selected</var
 
 
 Parameters:<ul><li><tt>{string}</tt> <var>id</var> 
-The select tag identifier.</li><li><tt>{Object.<string|string>}</tt> <var>options</var> 
-Options list {"value": "label"...}.</li><li><tt>{string=}</tt> <var>selected</var> 
+The select tag identifier.</li><li><tt>{Object.<string>}</tt> <var>options</var> 
+Options {"value": "label"...} or ["value"].</li><li><tt>{string=}</tt> <var>selected</var> 
 The selected item.</li></ul>Returns:<ul><li><tt>{string}</tt> html select tag.</li></ul><hr />
 <b name="selectVertex">
 
@@ -523,16 +543,30 @@ showMenu</b>&thinsp;(&thinsp;&thinsp;)
 <b name="showPanel">
 
 
-showPanel</b>&thinsp;(&thinsp;<var>title</var>, <var>content</var>&thinsp;)
+showPanel</b>&thinsp;(&thinsp;<var>head</var>, <var>body</var>&thinsp;)
 <p>Shows a panel
 <br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
 
 </p>
 
 
-Parameters:<ul><li><tt>{string}</tt> <var>title</var> 
-The panel name.</li><li><tt>{string}</tt> <var>content</var> 
-HTML panel content.</li></ul><hr />
+Parameters:<ul><li><tt>{string}</tt> <var>head</var> 
+Panel title.</li><li><tt>{string}</tt> <var>body</var> 
+Panel content.</li></ul><hr />
+<b name="tag">
+
+<tt>{string}</tt>
+tag</b>&thinsp;(&thinsp;<var>tagName</var>, <var>innerHTML</var>, <var>id</var>&thinsp;)
+<p>
+<br /><i>Defined in: </i> <a href="../symbols/src/SocialGraph.js.html">SocialGraph.js</a>.
+
+</p>
+
+
+Parameters:<ul><li><tt>{string}</tt> <var>tagName</var> 
+Tag name.</li><li><tt>{string=}</tt> <var>innerHTML</var> 
+Inner HTML.</li><li><tt>{string=}</tt> <var>id</var> 
+Node identifier.</li></ul>Returns:<ul><li><tt>{string}</tt> HTML for the tag.</li></ul><hr />
 <b name="trackMouse">
 
 

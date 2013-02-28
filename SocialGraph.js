@@ -223,11 +223,14 @@ function Coords(x, y) {
 
     /**
      * Horizontal component.
-     * @type {number} */
+     * @expose
+     * @type {number}
+     */
     this.x = x;
 
     /**
      * Vertical component.
+     * @expose
      * @type {number}
      */
     this.y = y;
@@ -438,8 +441,11 @@ function Vertex(props) {
         /** @type {number} */
         var opacity = selected ? 1 : .6;
 
+        /** @type {number} */
+        var radius = this.radius;
+
         /** @type {integer} */
-        var textSize = Math.ceil(2.5 * Math.sqrt(this.radius));
+        var textSize = Math.ceil(2.5 * Math.sqrt(radius));
 
         context.beginPath();
         context.lineWidth = selected ? 3 : 1;
@@ -447,22 +453,22 @@ function Vertex(props) {
         context.strokeStyle = 'rgba(' + this.color + ',' + (opacity) + ')';
 
         // Circle for organizations
-        if (this.type === vertexTypes[0])
+        if (this.type == vertexTypes[0])
             // Optimization : Math.PI * 2 = 6.283185
-            context.arc(position.x, position.y, this.radius, 0, 6.283185);
+            context.arc(position.x, position.y, radius, 0, 6.283185);
 
         // Square for people
-        else if (this.type === vertexTypes[1])
-            this.path([position.plus(coords(- this.radius, - this.radius)),
-                        position.plus(coords(this.radius, - this.radius)),
-                        position.plus(coords(this.radius, this.radius)),
-                        position.plus(coords(- this.radius, this.radius))]);
+        else if (this.type == vertexTypes[1])
+            this.path([position.plus(coords(- radius, - radius)),
+                        position.plus(coords(radius, - radius)),
+                        position.plus(coords(radius, radius)),
+                        position.plus(coords(- radius, radius))]);
 
         // Diamond for projects (and others if any)
-        else this.path([position.plus(coords(- this.radius, 0)),
-                        position.plus(coords(0, - this.radius)),
-                        position.plus(coords(this.radius, 0)),
-                        position.plus(coords(0, this.radius))]);
+        else this.path([position.plus(coords(- radius, 0)),
+                        position.plus(coords(0, - radius)),
+                        position.plus(coords(radius, 0)),
+                        position.plus(coords(0, radius))]);
 
         context.closePath();
         context.stroke();
@@ -556,7 +562,7 @@ function vertex(props) {
 function getVertexByTitle(title) {
 
     for (var v = 0, w = graph.vertices.length; v < w; v++)
-        if (graph.vertices[v].title === title) return v;
+        if (graph.vertices[v].title == title) return v;
 
     return -1;
 }
@@ -693,31 +699,26 @@ function showMenu() {
     var menu;
 
     if (getId('menu')) menu = getId('menu');
-    else {
+    else menu = create('nav', 'menu');
 
-        menu = create('nav');
-        menu.setAttribute('id', 'menu');
-    }
-
-    menu.innerHTML = '<strong id=graphTitle>' + graph.metadata.title +
-                    '</strong>' +
+    menu.innerHTML = tag('strong', graph.metadata.title, 'meta') +
                     ' by <em>' + graph.metadata.authors.join() + '</em>' +
                     ' (' + licenseLink(graph.metadata.license) + ')' +
-                    '<button id=help>Help ?</button>' +
-                    '<button id=share>Share</button>' +
-                    '<button id=import>Import</button>' +
-                    '<button id=save>Save</button>' +
-                    '<button id=new>+ New</button>';
+                    button('Help') +
+                    button('Share') +
+                    button('Import') +
+                    button('Save') +
+                    button('New');
 
     document.title = graph.metadata.title + ' | SocialGraph';
 
     // We associate actions to buttons
-    getId('new').onclick = addNewVertex;
-    getId('save').onclick = savePanel;
-    getId('import').onclick = importPanel;
-    getId('share').onclick = sharePanel;
-    getId('help').onclick = helpPanel;
-    getId('graphTitle').onclick = editMetaData;
+    getId('New').onclick = addNewVertex;
+    getId('Save').onclick = savePanel;
+    getId('Import').onclick = importPanel;
+    getId('Share').onclick = sharePanel;
+    getId('Help').onclick = helpPanel;
+    getId('meta').onclick = editMetaData;
 }
 
 /**
@@ -725,22 +726,23 @@ function showMenu() {
  */
 function editMetaData() {
 
+    showPanel('Edit graph options', '');
 }
 
 /**
  * Shows a panel
- * @param {string} title The panel name.
- * @param {string} content HTML panel content.
+ * @param {string} head Panel title.
+ * @param {string} body Panel content.
  */
-function showPanel(title, content) {
+function showPanel(head, body) {
 
-    content = '<button id=close class=right>Close</button>' +
-                '<h1>' + title + '</h1>' + content;
+    if (!getId('panel')) create('section', 'panel');
 
-    if (!getId('panel')) create('section').setAttribute('id', 'panel');
+    getId('panel').innerHTML = button('Close') + '<h1>' + head + '</h1>' + body;
 
-    getId('panel').innerHTML = content;
-    getId('close').onclick = closePanel;
+    getId('Close').onclick = closePanel;
+
+    document.body.style.backgroundColor = '#ddd';
 }
 
 /**
@@ -750,13 +752,13 @@ function showPanel(title, content) {
 function licenseLink(licenseId) {
 
     for (var i = 0, j = predefinedLicenses.length; i < j; i++)
-        if (predefinedLicenses[i].id === licenseId)
-        {
+
+        if (predefinedLicenses[i].id == licenseId)
+
             return '<a href="' + predefinedLicenses[i].url +
                     '" ' + linksTarget + ' title="' +
                     predefinedLicenses[i].name + '" rel=license>' +
                     licenseId + '</a>';
-        }
 
     return '';
 }
@@ -770,6 +772,8 @@ function closePanel() {
     var panel = getId('panel');
 
     if (panel) document.body.removeChild(panel);
+
+    document.body.style.backgroundColor = '#fff';
 }
 
 /**
@@ -807,9 +811,8 @@ function savePanel() {
         licenses[predefinedLicenses[i].id] = predefinedLicenses[i].name;
 
     showPanel('Save this graph',
-            '<button id=saveOffline>Save on my computer</button>' +
-            '<hr />' +
-            '<button id=saveOnline>Save on the web</button>' +
+            button('saveOffline', 'Save on my computer') + '<hr>' +
+            button('saveOnline', 'Save on the web') +
             ' with the password <input type=password id=graphPass value="">' +
             ' and visible to </label> ' +
             select('graphVisibility',
@@ -818,13 +821,13 @@ function savePanel() {
                     'public': 'everyone (public)'}, graph.metadata.visibility) +
             '. Publish under ' +
             select('graphLicense', licenses, graph.metadata.license) +
-            '<hr />' +
-            '<button id=download>Download</button> the ' +
-            select('exportData', {'Graph': 'Graph', 'Contacts': 'Contacts'}) +
-        ' in the ' + select('exportFormat', {'json': 'JSON', 'atom': 'Atom'}) +
+            '<hr>' +
+            button('Download') + ' the ' +
+            select('exportData', ['Graph', 'Contacts']) +
+        ' in the ' + select('exportFormat', ['JSON', 'Atom']) +
         ' format.');
 
-    getId('download').onclick = download;
+    getId('Download').onclick = download;
     getId('saveOffline').onclick = saveOffline;
 }
 
@@ -841,32 +844,21 @@ function importPanel() {
  */
 function editPanel() {
 
-    if (selectedVertices.length === 0) return;
+    if (selectedVertices.length == 0) return;
+
     else
         /** @type {Vertex} */
         var v = graph.vertices[selectedVertices[0]];
 
-    /** @type {string} */
-    var editOptions = '<label for=vertexType>Type:</label> ' +
-        '<select id=vertexType>';
-
-    for (var i = 0, j = vertexTypes.length; i < j; i++)
-        editOptions += '<option value=' + vertexTypes[i] +
-                        ((vertexTypes[i] == v.type) ?
-                            ' selected=selected' :
-                            '') +
-                        '>' + vertexTypes[i] + '</option>';
-
-    editOptions += '</select>' +
-        '<br />' +
-        '<label for=vertexTitle>Title:</label> ' +
-        '<input type=text maxlength=30 id=vertexTitle ' +
-            'value="' + v.title + '"><br />' +
-        '<label for=vertexDescription>Description:</label> ' +
-        '<input type=text maxlength=30 id=vertexDescription ' +
-            'value="' + v.description + '">';
-
-    showPanel('Edit this element', editOptions);
+    showPanel('Edit this element',
+            '<label for=vertexType>Type:</label> ' +
+            select('vertexType', vertexTypes, v.type) + '<br>' +
+            '<label for=vertexTitle>Title:</label> ' +
+            '<input type=text maxlength=30 id=vertexTitle ' +
+                'value="' + v.title + '"><br>' +
+            '<label for=vertexDescription>Description:</label> ' +
+            '<input type=text maxlength=100 id=vertexDescription ' +
+                'value="' + v.description + '">');
 
     getId('vertexType').onchange = editVertex;
     getId('vertexTitle').onchange = editVertex;
@@ -988,40 +980,34 @@ function download() {
     /** @type {string} */
     var raw = '';
 
-    if (exportData === 'Graph') {
-        if (exportFormat === 'json') {
-            raw = window.JSON.stringify(graph);
-        }
-        else if (exportFormat === 'atom') {
+    if (exportData == 'Graph') {
+
+        if (exportFormat == 'JSON') raw = window.JSON.stringify(graph);
+
+        else if (exportFormat == 'Atom') {
 
             raw = '<?xml version="1.0" encoding="utf-8"?>' +
                 '<feed xmlns="http://www.w3.org/2005/Atom">' +
-                '<title>' + graph.metadata.title + '</title>' +
-                '<subtitle>A social graph</subtitle>' +
+                tag('title', graph.metadata.title) +
+                tag('subtitle', 'A social graph') +
                 '<link href="' + SocialGraphUrl + '"/>' +
-                '<updated>' + graph.metadata.created + '</updated>' +
-                '<author><name>' + graph.metadata.authors[0] +
-                '</name></author>';
+                tag('updated', graph.metadata.created) +
+                tag('author', tag('name', graph.metadata.authors[0]));
 
             for (var i = 0, j = graph.vertices.length; i < j; i++)
-            {
-                raw += '<entry>' +
-                    '<title>' + graph.vertices[i].title + '</title>' +
-                    '<link href="' + SocialGraphUrl + '"/>' +
-                    '<updated>' + graph.metadata.created + '</updated>' +
-                    '<summary>' + graph.vertices[i].description + '</summary>' +
-                    '</entry>';
-            }
+
+                raw += tag('entry',
+                            tag('title', graph.vertices[i].title) +
+                            '<link href="' + SocialGraphUrl + '"/>' +
+                            tag('updated', graph.metadata.created) +
+                            tag('summary', graph.vertices[i].description));
 
             raw += '</feed>';
         }
     }
 
-    if (raw === '')
-        displayError('this function is not yet implemented, sorry...');
-    else {
-        showPanel('Output', '<textarea>' + raw + '</textarea>');
-    }
+    if (raw == '') displayError('this function is not yet implemented :-(');
+    else showPanel('Output', tag('textarea', raw));
 }
 
 /**
@@ -1035,14 +1021,11 @@ function getDataFromUrl(url, callback) {
     ajax.send(null);
 
     ajax.onreadystatechange = function() {
-        if (ajax.readyState === 4) {
+        if (ajax.readyState == 4) {
 
-            if (ajax.status === 200) callback(ajax.responseText);
+            if (ajax.status == 200) callback(ajax.responseText);
 
-            else {
-                ajax.abort();
-                displayError('the server do not respond properly (ajax)');
-            }
+            else displayError('the server do not respond properly (ajax)');
         }
     };
 }
@@ -1090,11 +1073,14 @@ function getId(id) {
 /**
  * Create a DOM Element and append it to the DOM body
  * @param {string} tagName The < tag name > .
+ * @param {string} id The Node identifier.
  * @return {Node} The DOM Node.
  */
-function create(tagName) {
+function create(tagName, id) {
 
     var node = document.createElement(tagName);
+
+    node.setAttribute('id', id);
 
     document.body.appendChild(node);
 
@@ -1112,19 +1098,46 @@ function trackMouse(e) {
 
 /**
  * @param {string} id The select tag identifier.
- * @param {Object.<string, string>} options Options list {"value": "label"...}.
+ * @param {Object.<string>} options Options {"value": "label"...} or ["value"].
  * @param {string=} selected The selected item.
  * @return {string} html select tag.
  */
 function select(id, options, selected) {
 
-    var html = '<select id=' + id + '>';
+    var html = '';
 
-    for (var val in options) html += '<option value="' + val + '"' +
-                                ((val == selected) ? 'selected=selected' : '') +
+    for (var val in options)
+    {
+        var value = (options instanceof Array) ? options[val] : val;
+
+        html += '<option value="' + value + '"' +
+                            ((value == selected) ? 'selected=selected' : '') +
                                         '>' + options[val] + '</option>';
+    }
 
-    return html + '</select>';
+    return tag('select', html, id);
+}
+
+/**
+ * @param {string} tagName Tag name.
+ * @param {string=} innerHTML Inner HTML.
+ * @param {string=} id Node identifier.
+ * @return {string} HTML for the tag.
+ */
+function tag(tagName, innerHTML, id) {
+
+    return '<' + tagName + (id ? ' id=' + id : '') + '>' +
+                (innerHTML ? innerHTML : '') + '</' + tagName + '>';
+}
+
+/**
+ * @param {string} id Node Identifier.
+ * @param {string=} label Button title.
+ * @return {string} The Html button.
+ */
+function button(id, label) {
+
+    return tag('button', label ? label : id, id);
 }
 
 
@@ -1139,7 +1152,7 @@ function select(id, options, selected) {
 window.onload = function() {
 
     // We create and stylish the canvas where we'll draw the animation
-    var canvas = create('canvas');
+    var canvas = create('canvas', 'canvas');
 
     /** @type {number} */
     var height = window.innerHeight;
@@ -1147,7 +1160,6 @@ window.onload = function() {
     /** @type {number} */
     var width = window.innerWidth;
 
-    canvas.setAttribute('id', 'canvas');
     context = canvas.getContext('2d');
     context.width = canvas.width = width;
     context.height = canvas.height = height;
@@ -1166,7 +1178,7 @@ window.onload = function() {
     }
 
     pieces = pieces.split('?');
-    if (pieces instanceof Array && pieces.length === 2) {
+    if (pieces instanceof Array && pieces.length == 2) {
         /** @type {string} */
         var graphId = pieces[1];
 
