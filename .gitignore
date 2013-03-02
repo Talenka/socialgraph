@@ -1,6 +1,6 @@
 .DS_Store
 sg.*
-save.php
+*.php
 favicon.ico
 data/
 doc/
