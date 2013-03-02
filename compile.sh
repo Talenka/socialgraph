@@ -9,8 +9,8 @@
 # This script checks, minifies and documents for the file SocialGraph.js
 #
 
-# We check style and language errors and warnings,
-# just because we care. For this we use the closure-linter. Mac OS setup: 
+# We check style and language errors and warnings, just because it is beautiful.
+# For this we use the closure-linter. Mac OS setup: 
 # sudo easy_install http://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz
 gjslint -r . --strict
 

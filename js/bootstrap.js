@@ -101,7 +101,9 @@ var graph = {
                 /** @expose */
                 visibility: 'private',
                 /** @expose */
-                license: 'COPYRIGHT'
+                license: 'COPYRIGHT',
+                /** @expose */
+                alias: 'unititled'
               },
               /**
                * @type {Array.<Vertex>}

@@ -58,10 +58,16 @@ function Vertex(props) {
   /** @type {Object.<string, string>} */
   this.details = props.details;
 
-  /** @type {number} */
+  /**
+   * @expose
+   * @type {number}
+   */
   this.mass = minimalMass + props.members.length;
 
-  /** @type {number} */
+  /**
+   * @expose
+   * @type {number}
+   */
   this.radius = Math.sqrt(this.mass) * objectsDensity;
 
   /** @type {Coords} */

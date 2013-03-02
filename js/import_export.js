@@ -54,12 +54,20 @@ function download() {
 /**
  * @param {string} url The ressource URL.
  * @param {function(string)} callback The function called with data as argument.
+ * @param {string=} opt_data Data to be sent.
  */
-function getDataFromUrl(url, callback) {
+function getDataFromUrl(url, callback, opt_data) {
 
   ajax = new window.XMLHttpRequest();
-  ajax.open('GET', url, true);
-  ajax.send(null);
+
+  ajax.open(opt_data ? 'POST' : 'GET', url, true);
+
+  if (opt_data)
+  {
+    ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    ajax.send(opt_data);
+  }
+  else ajax.send(null);
 
   ajax.onreadystatechange = function() {
 
@@ -76,23 +84,45 @@ function getDataFromUrl(url, callback) {
 
 
 /**
+ * @param {string} jsonString JSON string.
+ * @return {Object} a graph object.
+ */
+function convertJsonStringToGraph(jsonString)
+{
+  var buffer = window.JSON.parse(jsonString);
+
+  if (buffer &&
+      buffer.metadata &&
+      buffer.metadata instanceof Object &&
+      buffer.vertices &&
+      buffer.vertices instanceof Array)
+  {
+    for (var i = 0, j = buffer.vertices.length; i < j; i++)
+    {
+      buffer.vertices[i] = vertex(buffer.vertices[i]);
+      buffer.vertices[i].position = coords(buffer.vertices[i].position.x,
+                                           buffer.vertices[i].position.y);
+    }
+
+    return new Object(buffer);
+  }
+  else
+  {
+    displayError('there is a vergence in the Force');
+
+    return graph;
+  }
+}
+
+
+/**
  * @param {string} url The url containing JSON data.
  */
 function importFromUrl(url) {
 
   getDataFromUrl(url, function(data) {
 
-    var buffer = window.JSON.parse(data);
-
-    if (buffer &&
-        buffer.metadata &&
-        buffer.metadata instanceof Object &&
-        buffer.vertices &&
-        buffer.vertices instanceof Array)
-
-      graph = new Object(buffer);
-
-    else displayError('there is a vergence in the Force');
+    graph = convertJsonStringToGraph(data);
 
     showMenu();
 

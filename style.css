@@ -1,4 +1,4 @@
-body, input, select
+body
 {
     font-family: 'Helvetica Neue', Helvetica, Verdana, Arial;
 }
@@ -98,13 +98,5 @@ label
 input, select
 {
     font-size: inherit;
-    border: none;
-    box-shadow: inset 0 0 3px #ccc;
-    border-radius: 5px;
-}
-
-input:focus, input:active, input:hover,
-select:focus, select:active, select:hover
-{
-    box-shadow: 0 0 5px #ccc;
+    margin: 1px;
 }

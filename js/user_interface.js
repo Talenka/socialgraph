@@ -15,6 +15,17 @@ var creativeCommons = '//creativecommons.org/licenses/';
 
 
 /**
+ * User browser's name.
+ * @type {string}
+ */
+var browser = window.navigator.userAgent;
+if (window.opera) browser = 'Opera';
+else if (browser.indexOf('Chrome') != -1) browser = 'Chrome';
+else if (browser.indexOf('Firefox') != -1) browser = 'Firefox';
+else browser = 'the browser';
+
+
+/**
  * Licences list
  * @type {Array.<integer, {id: string, name: string, url: string}>}
  * @const
@@ -69,6 +80,16 @@ var predefinedLicenses = [
 
 
 /**
+ * Graph visiblities list
+ * @const
+ * @type {Object.<string, string>}
+ */
+var graphVisibilities = {'private': 'me (with the password)',
+                          'protected': 'those who have the link',
+                          'public': 'everyone (public)'};
+
+
+/**
  * Base URL of the website (TODO Explicit protocol needed?)
  * @const
  * @type {string}
@@ -120,31 +141,54 @@ function showMenu() {
   getId('Import').onclick = importPanel;
   getId('Share').onclick = sharePanel;
   getId('Help').onclick = helpPanel;
-  getId('meta').onclick = editMetaData;
+  getId('meta').onclick = editGraphMetaData;
 }
 
 
 /**
  * Edit meta data of the graph
  */
-function editMetaData() {
+function editGraphMetaData() {
+
+  /** @type {Object} */
+  var licenses = {};
+
+  for (var i = 0, j = predefinedLicenses.length; i < j; i++)
+    licenses[predefinedLicenses[i].id] = predefinedLicenses[i].name;
+
   showPanel('Edit graph options',
-            '<label for=vertexTitle>Graph title:</label> ' +
+            '<label for=graphTitle>Graph title:</label> ' +
             '<input type=text maxlength=30 id=graphTitle ' +
               'value="' + graph.metadata.title + '"><br>' +
-            '<label for=vertexDescription>Authors:</label> ' +
+            '<label for=graphAuthors>Authors:</label> ' +
             '<input type=text maxlength=100 id=graphAuthors ' +
               'value="' + graph.metadata.authors.join(', ') + '"><br>' +
-            'Created ' + graph.metadata.created + '<br>' +
-            'Visible to ' +
+            '<label for=graphVisibility>Visible to:</label> ' +
             select('graphVisibility',
-                  {'private': 'me (with the password)',
-                  'protected': 'those who have the link',
-                  'public': 'everyone (public)'}, graph.metadata.visibility));
+                  graphVisibilities, graph.metadata.visibility) +
+            '.<br><label for=graphLicense>Publish under:</label> ' +
+            select('graphLicense', licenses, graph.metadata.license) +
+            '<br>Graph created ' + graph.metadata.created);
 
-  //created: (new Date()).toGMTString(),
-  //visibility: 'private',
-  //license: 'COPYRIGHT'
+  getId('graphTitle').onchange = changeGraphMetaData;
+  getId('graphAuthors').onchange = changeGraphMetaData;
+  getId('graphVisibility').onchange = changeGraphMetaData;
+  getId('graphLicense').onchange = changeGraphMetaData;
+}
+
+
+function changeGraphMetaData() {
+
+  graph.metadata.title = getId('graphTitle').value;
+  graph.metadata.visibility = getId('graphVisibility').value;
+  graph.metadata.license = getId('graphLicense').value;
+  graph.metadata.authors = getId('graphAuthors').value.split(',')
+    .map(function(e) {
+        // We trim externals or multiple blank characters.
+        return e.replace(/(^\s+|\s+$)/g, '').replace(/\s+/g, ' ');
+      });
+
+  showMenu();
 }
 
 
@@ -230,29 +274,57 @@ function createVertexAndEditPanel() {
  */
 function savePanel() {
 
-  /** @type {Object} */
-  var licenses = {};
-
-  for (var i = 0, j = predefinedLicenses.length; i < j; i++)
-    licenses[predefinedLicenses[i].id] = predefinedLicenses[i].name;
-
   showPanel('Save this graph',
-            button('saveOffline', 'Save on my computer') + '<hr>' +
+            button('saveOffline', 'Save in ' + browser) + '<hr>' +
             button('saveOnline', 'Save on the web') + '<br>' +
+            SocialGraphUrl + '?' +
+            '<input id=graphAlias value="' +
+              cleanGraphAlias(graph.metadata.alias) +
+              '" maxlength=120>' +
+            '<br>' +
             'with the password <input type=password id=graphPass value="">' +
-            '<br> and visible to </label> ' +
+            ' and visible to ' +
             select('graphVisibility',
-                  {'private': 'me (with the password)',
-                  'protected': 'those who have the link',
-                  'public': 'everyone (public)'}, graph.metadata.visibility) +
-            '. <br>Publish under ' +
-            select('graphLicense', licenses, graph.metadata.license) + '<hr>' +
+                  graphVisibilities, graph.metadata.visibility) +
+            '.<hr>' +
             button('Download') + ' the ' +
             select('exportData', ['Graph', 'Contacts']) +
             ' in the ' + select('exportFormat', ['JSON', 'Atom']) + ' format.');
 
+  updateAliasAvailability(graph.metadata.alias);
+  getId('graphAlias').onchange = function() {
+    updateAliasAvailability(getId('graphAlias').value);
+  };
   getId('Download').onclick = download;
   getId('saveOffline').onclick = saveOffline;
+  getId('saveOnline').onclick = saveOnline;
+}
+
+
+/**
+ * Search for an available alias and update graph alias.
+ * @param {string} alias Wanted alias.
+ */
+function updateAliasAvailability(alias)
+{
+  getDataFromUrl(SocialGraphUrl + 'getAlias?' + cleanGraphAlias(alias),
+                 function(a) {
+                   getId('graphAlias').value = graph.metadata.alias = a;
+                 });
+}
+
+
+/**
+ * Clean an alias for online saving
+ * @param {string} alias Dirty alias.
+ * @return {string} lowercased_trimmed_safe_alias.
+ */
+function cleanGraphAlias(alias)
+{
+  return alias.replace(/\W+/g, ' ')
+              .replace(/(^\s+|\s+$)/g, '')
+              .replace(/ /g, '_')
+              .toLowerCase();
 }
 
 
@@ -349,6 +421,28 @@ function saveOffline() {
       }
   }
   */
+}
+
+
+function saveOnline() {
+
+  showPanel('Saving graph on the world wild web...', '');
+
+  getDataFromUrl(SocialGraphUrl + 'save?' + graph.metadata.visibility +
+                 '/' + graph.metadata.alias,
+                 function(responseText) {
+                   var response = window.JSON.parse(responseText);
+
+                   if (!response)
+                     displayError('Server responded in a unknown language!');
+
+                   else if (response.url)
+                     window.location = response.url;
+
+                   else
+                     displayError(response.status);
+                 },
+                 'json_content=' + escape(window.JSON.stringify(graph)));
 }
 
 
