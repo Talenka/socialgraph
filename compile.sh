@@ -20,12 +20,18 @@ java -jar ../tools/js/jsdoc-toolkit/jsrun.jar \
 ../tools/js/jsdoc-toolkit/app/run.js \
 --debug \
 --directory=doc \
---t=../tools/js/jsdoc-toolkit/templates/jsdoc/ SocialGraph.js
+--t=../tools/js/jsdoc-toolkit/templates/jsdoc/ \
+--recurse=2 js
 
 # We use Closure compiler for Javascript Minification. Download it here:
 # https://closure-compiler.googlecode.com/files/compiler-latest.zip
 java -jar ../tools/js/closure/compiler.jar \
---js SocialGraph.js \
+--js js/Coords.js \
+--js js/Vertex.js \
+--js js/user_interface.js \
+--js js/import_export.js \
+--js js/dom.js \
+--js js/bootstrap.js \
 --js_output_file SocialGraph.min.js \
 --charset UTF-8 \
 --compilation_level ADVANCED_OPTIMIZATIONS \
