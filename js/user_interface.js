@@ -166,9 +166,9 @@ function editGraphMetaData() {
             '<label for=graphVisibility>Visible to:</label> ' +
             select('graphVisibility',
                   graphVisibilities, graph.metadata.visibility) +
-            '.<br><label for=graphLicense>Publish under:</label> ' +
+            '<br><label for=graphLicense>Publish under:</label> ' +
             select('graphLicense', licenses, graph.metadata.license) +
-            '<br>Graph created ' + graph.metadata.created);
+            '<br>Graph created ' + formatTime(graph.metadata.created));
 
   getId('graphTitle').onchange = changeGraphMetaData;
   getId('graphAuthors').onchange = changeGraphMetaData;
@@ -355,26 +355,24 @@ function editPanel() {
               'value="' + v.title + '"><br>' +
             '<label for=vertexDescription>Description:</label> ' +
             '<input type=text maxlength=100 id=vertexDescription ' +
-              'value="' + v.description + '">');
+              'value="' + v.description + '">' +
+            '<label for=vertexImage>Image:</label> ' +
+            '<input type=text maxlength=100 id=vertexImage ' +
+              'value="' + (v.image ? v.image.src : '') + '">');
 
-  // Image
   // Details {}
-  // Couleur
-  // Membres []
-  // Liens {}
+  //  website {type, address}
+  //  birthday
+  //  location {type, address}
+  //  phone {type, number}
+  //  email {type, address}
+  // color
+  // members []
+  // links {}
 
   getId('vertexType').onchange = editVertex;
   getId('vertexTitle').onchange = editVertex;
   getId('vertexDescription').onchange = editVertex;
-
-  /*
-  ⌚ Montre/Watch
-  ⌫ Erase
-  ⎌ Undo
-  ⚓ Anchor
-  ✆ Phone
-  ✉ Letter
-  */
 }
 
 
@@ -561,4 +559,13 @@ function selectVertex() {
     selectedVertices = [];
   }
   else selectedVertices = [lastSelected];
+}
+
+
+/**
+ * @param {string} date Date and time in standard GMT format.
+ * @return {string} human readable date and time.
+ */
+function formatTime(date) {
+  return (new Date(date)).toLocaleString();
 }
