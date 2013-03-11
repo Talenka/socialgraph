@@ -1,6 +1,18 @@
-.DS_Store
-sg.*
 *.php
-favicon.ico
+
+# Hidden files (including this one)
+.*
+
+# Images
+*.ico
+*.jpg
+*.png
+
+# SublimeText files
+*.sublime-*
+
+# Data (not public)
 data/
+
+# Documentation (since it is available online)
 doc/
