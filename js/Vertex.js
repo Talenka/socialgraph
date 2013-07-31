@@ -8,7 +8,7 @@
 
 /**
  * Little dictionnary of predefined colors in "Red,Green,Blue" format
- * @type {Array.<integer, string>}
+ * @type {Array.<string>}
  * @const
  */
 var predefinedColors = ['223,87,69', '40,207,174', '99,129,208', '138,219,76',

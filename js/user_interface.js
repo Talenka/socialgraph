@@ -27,7 +27,7 @@ else browser = 'the browser';
 
 /**
  * Licences list
- * @type {Array.<integer, {id: string, name: string, url: string}>}
+ * @type {Array.<{id: string, name: string, url: string}>}
  * @const
  */
 var predefinedLicenses = [
