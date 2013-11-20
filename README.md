@@ -1,7 +1,8 @@
 Draw [social graphs](https://en.wikipedia.org/wiki/Social_graph) of organizations, people, interaction and projects.
 
-* [Online demo](http://socialgraph.boudah.pl/?demo)
-* [documentation](http://socialgraph.boudah.pl/doc/)
+[Online demo](http://socialgraph.boudah.pl/?demo)
+
+[documentation](http://socialgraph.boudah.pl/doc/)
 
 It is a brand new project, __Comments and help are welcomed__.
 
@@ -20,8 +21,3 @@ It is a brand new project, __Comments and help are welcomed__.
 * Share (public with licence selection, semi-public) or not (private online 
 storage available with [AES256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 
 [client-side encryption](https://en.wikipedia.org/wiki/Client-Side_Encryption))
-
-### Licence
-
-This work was started by [Boudah Talenka](http://boudah.pl) and is freely 
-distributed under the [GNU General Public Licence](https://www.gnu.org/licenses/gpl.html).
