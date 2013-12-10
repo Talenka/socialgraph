@@ -1,18 +1,26 @@
-*.php
-
-# Hidden files (including this one)
-.*
-
 # Images
 *.ico
 *.jpg
 *.png
+*.svg
 
 # SublimeText files
 *.sublime-*
 
-# Data (not public)
-data/
-
 # Documentation (since it is available online)
 doc/
+
+# Hidden files
+.DS_Store
+.htaccess
+
+# RSS/Atom Feeds
+*.xml
+
+# Google webmaster file
+google*
+
+# For now data and the PHP scripts that save data
+# are not open source, sorry (until I secure it properly)
+data/
+*.php
